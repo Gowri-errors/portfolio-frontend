@@ -90,9 +90,8 @@ document.addEventListener("click", e => {
   }
 });
  
-
-document.querySelector(".query_form-1").addEventListener("submit", async e => {
-  e.preventDefault();
+document.getElementById("contactForm").addEventListener("submit", async e => {
+  e.preventDefault(); // 🔥 stops URL redirect
 
   const form = e.target;
   const statusBox = document.getElementById("form-status");
@@ -105,7 +104,7 @@ document.querySelector(".query_form-1").addEventListener("submit", async e => {
     name: form.name.value,
     email: form.email.value,
     phone: form.phone.value,
-    address: form.address.value,
+    address: form.address?.value || "",
     message: form.querySelector("textarea").value
   };
 
@@ -126,17 +125,13 @@ document.querySelector(".query_form-1").addEventListener("submit", async e => {
         statusBox.style.display = "none";
       }, 4000);
     } else {
-      alert("❌ Failed to send");
+      alert("❌ Failed to send email");
     }
 
-  } catch {
+  } catch (err) {
     alert("❌ Server not responding");
   }
 
   button.innerText = "Submit now";
   button.disabled = false;
 });
-
-/* ============================= */
-loadAllLikes();
- 
