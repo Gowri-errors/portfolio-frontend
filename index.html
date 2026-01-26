@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link of CSS files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/flaticon_hinton.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/update.css">
+  
+  <title>Gowrishankar - Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/img/main-icon.png">
+ 
+
+
+    <style>
+        
+ .wishlist-counter i {
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.wishlist-counter i.liked {
+  color: #e11d48;
+}
+
+@keyframes heartPop {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.4); }
+  60% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.wishlist-counter i.animate {
+  animation: heartPop 0.35s ease;
+}
+
+
+
+        </style>
+</head>
+
+<body>
+
+    <!--  Preloader Start -->
+    <div class="preloader-area d-flex flex-column align-items-center justify-content-center h-100" id="preloader">
+        <!-- <span class="d-block stethoscope-icon"><i class="ri-laptop-line"></i></span> -->
+        <span class="text-primary mt-2 fw-medium">Loading...</span>
+    </div>
+    <!--  Preloader End -->
+
+    <!-- Theme Switcher Start -->
+    <div class="switch-theme-mode">
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <!-- Theme Switcher End -->
+
+
+
+
+    <!-- Navbar Area Start -->
+    <div class="navbar-area style-two position-relative bg-title z-2" id="navbar">
+        <div class="container style-one">
+            <div class="navbar-wrapper d-flex justify-content-between align-items-center p-0">
+                <!-- <a href="index.html" class="logo">
+                    <h1 style="color:aliceblue;"><strong>DEVELOPMENT</strong> </h1>
+                </a> -->
+                <div class="menu-area ms-auto pe-5 me-5">
+                    <div class="overlay"></div>
+                    <nav class="menu">
+                        <div class="menu-mobile-header">
+                            <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i
+                                    class="ri-arrow-left-s-line"></i></button>
+                            <button type="button" class="menu-mobile-close bg-transparent border-0"><i
+                                    class="ri-close-line"></i></button>
+                        </div>
+                        <ul class="menu-section p-0 mb-0">
+                            <li class="menu-item-has-children">
+                                <a href="index.html" class="active">HOME</a>
+
+                            </li>
+
+
+
+
+
+                            <li><a href="about.html">ABOUT</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="javascript:void(0)">SERVICES</a>
+                                <ul class="menu-subs menu-column-1">
+                                    <li class="menu-item-has-children">
+                                        <a href="teaching.html">TEACHING</a>
+                                        
+                                    </li>   
+                                    <li class="menu-item-has-children"><a href="javascript:void(0)">DEVELOPER</a>
+                                        
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+
+                           <li class="menu-item-has-children">
+    <a href="javascript:void(0)">PROJECTS</a>
+    <ul class="menu-subs menu-column-1">
+        <li><a href="#projects">Web Development Projects</a></li>
+        
+     
+    </ul>
+</li>
+                             <li><a href="skil.html">SKILLS</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="contact-us.html">CONTECT</a>
+                                <ul class="menu-subs menu-column-1">
+                                    <!-- <li class="menu-item-has-children"><a href="javascript:void(0)">EMAIL</a>
+                                        <ul class="menu-subs menu-column-1">
+                                            <li><a href="mailto:gowrishankar1142003@gmail.com">gowrishankar@gmail.com</a></li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="javascript:void(0)">MOBILE NUMBER</a>
+                                        <ul class="menu-subs menu-column-1">
+                                            <li><a href="tel:7395871291"
+                                                    class="d-flex justify-content-center font-primary text-md-center "
+                                                     >-- 7395871291 -- </a></li>
+
+                                        </ul>
+                                    </li>
+                                </ul> -->
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+                <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                    <div class="option-item d-lg-none">
+                        <div class="contact-card-btn">
+                            <button
+                                class="dropdown-toggle d-flex align-items-center position-relative bg-transparent border-0 ms-auto transition"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                <img src="assets/img/dashboard/icons/dot.svg" alt="Dot Icon" class="action-btn">
+                            </button>
+                            <div class="dropdown-menu top-1 border-0 round-5">
+                                <div class="contact-card-wrap style-two d-flex flex-wrap">
+                                    <div class="contact-card d-flex flex-wrap align-items-center">
+                                        <div
+                                            class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                            <img src="assets/img/icons/phone-blue.svg" alt="Icon" class="transition">
+                                        </div>
+                                        <div class="contact-info">
+                                            <span class="d-block fs-15 fs-xx-14">Contect Line</span>
+                                            <a href="tel:7395871291"
+                                                class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">+91
+                                                7395871291</a>
+                                        </div>
+                                    </div>
+                                    <div class="contact-card d-flex flex-wrap align-items-center">
+                                        <div
+                                            class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                            <img src="assets/img/icons/mail-blue.svg" alt="Icon" class="transition">
+                                        </div>
+                                        <div class="contact-info">
+                                            <span class="d-block fs-15 fs-xx-14">Support Email</span>
+                                            <a href="mailto:gowrishankar1142003@gmail.com"
+                                                class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">gowrishankar@gmail.com</a>
+                                        </div>
+                                    </div>
+                                    <div class="contact-card d-flex flex-wrap align-items-center">
+                                        <div
+                                            class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                            <img src="assets/img/icons/pin-blue.svg" alt="Icon" class="transition">
+                                        </div>
+                                        <div class="contact-info">
+                                            <span class="d-block fs-15 fs-xx-14">Visit Us On</span>
+                                            <p class="font-secondary fw-semibold text-title fs-xx-14 mb-0">
+                                                Salem , Tamilnadu</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="contact-us.html"
+                                    class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                                    <span>CONTECT ME...!
+                                        <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                            class="transition icon-left">
+                                    </span>
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                        class="transition icon-right">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <!-- <div class="currency-selector position-relative">
+                                <img src="assets/img/icons/dollar-white.svg" alt="Icon">
+                                
+                            </div> -->
+                    </div>
+                    <div class="option-item d-lg-inline-block">
+                        <a href="contact-us.html"
+                            class="header-link font-secondary fw-semibold position-relative d-inline-block text-white hover-text-white link-hover-white transition">
+                            <i class="ri-account-circle-line"></i>
+                            <span class="d-none d-xl-inline-block">Connect / Register</span>
+                        </a>
+                    </div>
+
+                    <div class="option-item d-lg-none me-0">
+                        <button type="button" class="menu-mobile-trigger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                    <!-- <div class="option-item d-none d-lg-block">
+                        <a href="#"
+                            class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                            <span>CONTECT ME...!
+                                <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                    class="transition icon-left">
+                            </span>
+                            <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-right">
+                        </a>
+                    </div> -->
+                     <!-- <div class="header_extra d-flex flex-row align-items-center justify-content-end">
+                                 <div class="header_btn">
+                                    <a class="prt-btn" href="#" id="openQuotation">Get in quote</a>
+                                 </div>
+                              </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="hero-area style-three bg-title position-relative overflow-hidden z-1">
+        <img src="assets/img/personal-2/tech-image2.png " alt="Image" class="hero-img-one position-absolute bounce"
+            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="350">
+        <img src=" assets/img/computer-image.png " alt="Image" class="hero-img-two   position-absolute bounce"
+            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
+        <!-- <img src="assets/img/hero/hero-shape-1.png" alt="Image" class="hero-shape-one position-absolute rotate">
+            <img src="assets/img/hero/hero-shape-2.png" alt="Image" class="hero-shape-two position-absolute bounce"> -->
+        <div class="container style-one">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <div class="hero-content text-center">
+                        <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-12"
+                            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">Ready To Crack The World
+                        </h6>
+                        <h1 class="fw-black text-white" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="1050">Gowrishankar-Software developer</h1>
+                        <p class="fs-xxl-20 text-white" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="450">Java-fullstack-Trainer</p>
+                        <div class="btn-wrap d-inline-flex flex-wrap align-items-center mx-auto" data-aos="fade-up"
+                            data-aos-duration="1100" data-aos-delay="550">
+                            <a href="#"
+                                class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                                <span>Know More
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                        class="transition icon-left">
+                                </span>
+                                <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                    class="transition icon-right">
+                            </a>
+                            <a class="play-video d-flex align-items-center" data-fslightbox=""
+                                href="#">
+                                <span
+                                    class="play-icon d-flex flex-column justify-content-center align-items-center rounded-circle text-white bg_primary"><i
+                                        class="ri-play-mini-fill"></i></span>
+                                <span class="fs-xx-14 font-secondary fw-bold text-white">Our Works</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="about-area style-two pb-120">
+        <div class="container style-one">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pe-xxl-1">
+                    <div class="about-img-wrap position-relative mb-md-30">
+                        <div class="about-img round-20" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="200">
+                            <img src="assets/img/personal-2/img-about-1.jpg" alt="About Us" class="round-20">
+                        </div>
+                        <div class="booking-doctor" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">
+                            <div class="book-doctor book-one bg-ash d-flex flex-wrap align-items-center round-20">
+                                <div class="doctor-img rounded-circle">
+                                    <img src="assets/img/personal-2/img-about-2.jpg" alt="Gowri"
+                                        class="rounded-circle">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3 class="fs-22 fw-bold"><a href="teaching.html"
+                                            class="text-title hover-text-primary">Trainer</a></h3>
+                                    <span class="fs-xx-14 d-block">Java-fullstack</span>
+                                </div>
+                                <a class="tb-btn style-one font-secondary fw-semibold d-inline-block border-0 text-white round-10 transition"
+                                    href="teaching.html">view more</a>
+                            </div>
+                            <div class="about-img-two round-20">
+                                <img src="#" alt="" class="round-20">
+                            </div>
+                            <div class="book-doctor book-two bg-ash d-flex flex-wrap align-items-center round-20">
+                                <div class="doctor-img rounded-circle">
+                                    <img src="assets/img/personal-2/developer-img1.jpg" alt="Gowri"
+                                        class="rounded-circle">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3 class="fs-22 fw-bold"><a href="#"
+                                            class="text-title hover-text-primary">Developer</a></h3>
+                                    <span class="fs-xx-14 d-block">Front-End developer</span>
+                                </div>
+                                <a class="tb-btn style-one font-secondary fw-semibold d-inline-block border-0 text-white round-10 transition"
+                                    href="#">view more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-xxl-5">
+                    <div class="about-content ps-xxl-5">
+                        <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15"
+                            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">ABOUT ME</h6>
+                        <h2 class="section-title fw-black text-title me-xxl-5" data-aos="fade-up"
+                            data-aos-duration="1100" data-aos-delay="300">Hi, I’m GOWRISHANKAR</h2>
+                        <p class="mb-32" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">Frontend
+                            Developer | Tech Trainer | Mentor
+
+                            Passionate about crafting responsive, user-friendly web applications.
+
+                            Dedicated to teaching and mentoring aspiring developers in modern web technologies.</p>
+                
+                        <div class="btn-wrap d-flex flex-wrap align-items-center" data-aos="fade-in"
+                            data-aos-duration="1100" data-aos-delay="700">
+                            <a href="about.html"
+                                class="btn style-one font-secondary fw-semibold position-relative z-1 round-10 me-lg-30 me-md-2">
+                                <span>View More About Us
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                        class="transition icon-left">
+                                </span>
+                                <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                    class="transition icon-right">
+                            </a>
+                            <div class="contact-card w-50 d-flex flex-wrap align-items-center">
+                                <div
+                                    class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                    <img src="assets/img/icons/phone-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Contect Line</span>
+                                    <a href="tel:7395871291"
+                                        class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">+91
+                                        (739) 587 1291 </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+ 
+    <div class="about-area style-three position-relative z-1 ptb-120">
+        <!-- <img src="assets/img/shape-1.png" alt="Shape" class="about-shape position-absolute z-n1 rotate"> -->
+        <div class="container style-one">
+            <div class="row align-items-center">
+                 
+                <div class="col-lg-12 ps-xxl-5">
+                    <div class="about-content ps-xxl-5">
+                        <h6 class="section-subtitle fw-semibold font-primary d-inline-block text_secondary position-relative mb-15"
+                            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">ABOUT SKILLS</h6>
+                        <h2 class="section-title fw-black text-title me-xxl-5 mb-15" data-aos="fade-up"
+                            data-aos-duration="1100" data-aos-delay="300">JAVA FULLSTACK-DEVELOPER
+                        </h2>
+                        <p data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">With a focus on
+                            compassionate and personalized treatment we strive to create welcoming environment where
+                            patients feel valued respected and well informed about their Technologys</p>
+                        <ul class="feature-list d-xl-flex flex-wrap align-items-center justify-content-between list-unstyled"
+                            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
+                            <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">Core Java</li>
+                            <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">Html</li>
+                            <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">css - Bootstrap 5</li>
+                            <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">Java-Script</li>
+                            <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">React-js</li>
+                            <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">Sql-Database</li>
+                                    <li class="position-relative font-secondary fs-xxl-18 fw-semibold text-title"><img
+                                    src="assets/img/icons/check.svg" alt="Icon">C , C++ , Php</li>
+                        </ul>
+                        <div class="btn-wrap d-flex flex-wrap align-items-center">
+                            <a href="skil.html"
+                                class="btn style-two font-secondary fw-semibold position-relative z-1 round-10 me-lg-30 me-md-2">
+                                <span>View More About Skills
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                        class="transition icon-left">
+                                </span>
+                                <img src="assets/img/icons/right-arrow-white.svg" alt="Icon"
+                                    class="transition icon-right">
+                            </a>
+                            <div class="book-doctor-card d-flex flex-wrap align-items-center">
+                                <div class="doc-img rounded-circle">
+                                    <img src="assets/img/personal-2/img-about-2.jpg" alt="Image"class="rounded-circle">
+                                </div>
+                                <div class="doc-info">
+                                    <h3 class="fs-22 fw-semibold mb-1 text-title">Gowri Shankar B</h3>
+                                    <span class="d-block">Front-End Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="bg-ash pt-120 pb-90">
+        <div class="container style-one">
+            <div class="counter-card-wrap style-two d-flex flex-wrap">
+                <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                    <div
+                        class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-chard">
+                        <i class="fa-solid fa-building-columns fa-2xl"></i>
+                    </div>
+                    <div class="counter-text">
+                        <h4 class="text-title fw-black"><span class="counter fw-black">15</span>+</h4>
+                        <p class="fs-xxl-20 mb-0">Total colleges    </p>
+                    </div>
+                </div>
+                <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                    <div
+                        class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-mauve">
+                     <i class="fa-solid fa-graduation-cap fa-2xl"></i>
+                    </div>
+                    <div class="counter-text">
+                        <h4 class="text-title fw-black"><span class="counter fw-black">1000</span>+</h4>
+                        <p class="fs-xxl-20 mb-0">Trained Students</p>
+                    </div>
+                </div>
+                <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                    <div
+                        class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-jordyBlue">
+                        <i class="fa-solid fa-hexagon-nodes-bolt fa-2xl"></i>
+                    </div>
+                    <div class="counter-text">
+                        <h4 class="text-title fw-black"><span class="counter fw-black">10</span>+</h4>
+                        <p class="fs-xxl-20 mb-0">knows languages</p>
+                    </div>
+                </div>
+                <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                    <div
+                        class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-berylGreen">
+                       <i class="fa-regular fa-envelope fa-2xl"></i>
+                    </div>
+                    <div class="counter-text">
+                        <h4 class="text-title fw-black"><span class="counter fw-black">13</span>+</h4>
+                        <p class="fs-xxl-20 mb-0">companies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="bg-ash pt-120 pb-90">
+        <div class="container style-one">
+            <div class="text-center">
+                <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15"
+                    data-aos="fade-up" data-aos-duration="1100" data-aos-delay="800">My Resume</h6>
+                <h2 class="section-title fw-black text-title mb-35" data-aos="fade-up" data-aos-duration="1100"
+                    data-aos-delay="300">Skills Details</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xxl-6 col-lg-8  ">
+                    <div class="hospital-card style-three bg-white d-flex flex-wrap align-items-center round-20 mb-30 transition"
+                        data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
+                        <div class="hospital-img position-relative round-10">
+                            <img src="assets/img/personal-2/resume1-img.png" alt="Gowri-res" class="round-10">
+                            <div class="share-action d-flex flex-wrap position-absolute mt-4 pt-2 ms-3  "  >
+                                <div class="share-btn position-relative  ">
+                                    <span
+                                        class="d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22"><i
+                                            class="ri-share-line"></i></span>
+                                    <ul class="social-profile list-unstyled mb-0 transition">
+                                        <li><a href="https://www.facebook.com/share/1Gt4bHno2v/" target="_blank"
+                                                class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i
+                                                    class="ri-facebook-fill"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/gowri-shankar-444364201" target="_blank"
+                                                class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i
+                                                    class="ri-twitter-x-line"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/gowri-shankar-444364201" target="_blank"
+                                                class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i
+                                                    class="ri-linkedin-fill"></i></a></li>
+                                    </ul>
+                                </div>
+                                
+                                        
+                            </div>
+                        </div>
+
+                        <style>
+                            .round-5 {
+    border-radius: 25px;
+}
+                        </style>
+                        <div class="hospital-info">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between mb-23">
+                                 
+                                <div class="ratings d-flex align-items-center ">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    
+                                </div>
+                            </div>
+                            <h3 class="fs-24 fw-extrabold mb-15"><a href="#"
+                                    class="text-title hover-text-primary link-hover-primary transition">Java Fullstack-Developer
+                                     </a></h3>
+                            <p class="hospital-location position-relative ps-4"><img
+                                    src="assets/img/icons/pin-black.svg" alt="Icon"
+                                    class="position-absolute start-0"> India Tamil Nadu  </p>
+                            <div
+                                class="hospital-action-btn position-relative d-flex flex-wrap align-items-center justify-content-between">
+                                <a href="resume.html"
+                                    class="btn style-three font-secondary fw-semibold position-relative z-1 round-10">
+                                    <span>View Resume
+                                        <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon"
+                                            class="transition icon-left">
+                                    </span>
+                                    <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon"
+                                        class="transition icon-right">
+                                </a>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+  
+              
+                
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="pt-120 pb-90">
+        <div class="container style-one">
+            <div class="row align-items-center mb-25">
+                <div class="col-md-8 mb-sm-10">
+                    <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15"
+                        data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">Professional</h6>
+                    <h2 class="section-title fw-black text-title mb-15 me-xxl-5" data-aos="fade-up"
+                        data-aos-duration="1100" data-aos-delay="300">Professional Coding Training</h2>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="teaching.html"
+                        class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                        <span>View All Projects
+                            <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-left">
+                        </span>
+                        <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-right">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="location-slider-two swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="location-card style-two bg-white position-relative round-20 mb-30 transition">
+                        <div class="location-img img-hover position-relative overflow-hidden round-15">
+                            <img src=" assets/img/trainer/sb1.jpg  " alt="img" class="transition round-15">
+                            <div class="wishlist-counter bg-white d-inline-block text-title position-absolute" data-id="1"><i
+                                    class="ri-heart-3-line"></i><span>0</span></div>
+                        </div>
+                        <div class="location-info d-flex flex-wrap align-items-center justify-content-between">
+                            <div>
+                                <h3 class="fs-24 fw-extrabold"><a href="teaching.html#sathyabama"
+                                        class="text-title link-hover-primary hover-text-primary">Sathyabama Univarsity </a></h3>
+                                <p class="position-relative mb-0"><img src="assets/img/icons/pin-blue.svg"
+                                        alt="Icon">OMR , Chennai</p>
+                            </div>
+                            <a href="teaching.html#sathyabama"
+                                class="location-link text_primary bg-ash d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                    class="ri-arrow-right-up-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="location-card style-two bg-white position-relative round-20 mb-30 transition">
+                        <div class="location-img img-hover position-relative overflow-hidden round-15">
+                            <img src="assets/img/trainer/st_joseph_2.jpg " alt="img" class="transition round-15">
+                            <div class="wishlist-counter bg-white d-inline-block text-title position-absolute" data-id="2"><i
+                                    class="ri-heart-3-line"></i><span>0</span></div>
+                        </div>
+                        <div class="location-info d-flex flex-wrap align-items-center justify-content-between">
+                            <div>
+                                <h3 class="fs-24 fw-extrabold"><a href="teaching.html#st_joseph"
+                                        class="text-title link-hover-primary hover-text-primary">St.Joseph college
+                                       </a></h3>
+                                <p class="position-relative mb-0"><img src="assets/img/icons/pin-blue.svg"
+                                        alt="Icon">OMR , Chennai</p>
+                            </div>
+                            <a href="teaching.html#st_joseph"
+                                class="location-link text_primary bg-ash d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                    class="ri-arrow-right-up-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="location-card style-two bg-white position-relative round-20 mb-30 transition">
+                        <div class="location-img img-hover position-relative overflow-hidden round-15">
+                            <img src="assets/img/trainer/smvec1.jpg " alt="img" class="transition round-15">
+                            <div class="wishlist-counter bg-white d-inline-block text-title position-absolute " data-id="3"  ><i
+                                    class="ri-heart-3-line"></i><span>0</span></div>
+                        </div>
+                        <div class="location-info d-flex flex-wrap align-items-center justify-content-between">
+                            <div>
+                                <h3 class="fs-24 fw-extrabold"><a href="teaching.html#smvec"
+                                        class="text-title link-hover-primary hover-text-primary"> S M V E C
+                                       </a></h3>
+                                <p class="position-relative mb-0"><img src="assets/img/icons/pin-blue.svg"
+                                        alt="Icon">Pandichery</p>
+                            </div>
+                            <a href="teaching.html#smvec"
+                                class="location-link text_primary bg-ash d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                    class="ri-arrow-right-up-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="location-card style-two bg-white position-relative round-20 mb-30 transition">
+                        <div class="location-img img-hover position-relative overflow-hidden round-15">
+                            <img src=" assets/img/trainer/smvec2.jpg" alt="img" class="transition round-15">
+                            <div class="wishlist-counter bg-white d-inline-block text-title position-absolute" data-id="4"><i
+                                    class="ri-heart-3-line"></i><span>0</span></div>
+                        </div>
+                        <div class="location-info d-flex flex-wrap align-items-center justify-content-between">
+                            <div>
+                                <h3 class="fs-24 fw-extrabold"><a href="teaching.html#smvct"
+                                        class="text-title link-hover-primary hover-text-primary">S M V C T</a>
+                                </h3>
+                                <p class="position-relative mb-0"><img src="assets/img/icons/pin-blue.svg" alt="Icon">
+                                    Pudhuchery</p>
+                            </div>
+                            <a href="teaching.html#smvct"
+                                class="location-link text_primary bg-ash d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                    class="ri-arrow-right-up-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="location-card style-two bg-white position-relative round-20 mb-30 transition">
+                        <div class="location-img img-hover position-relative overflow-hidden round-15">
+                            <img src="assets/img/trainer/sb2.jpg " alt="img" class="transition round-15">
+                            <div class="wishlist-counter bg-white d-inline-block text-title position-absolute" data-id="6"><i
+                                    class="ri-heart-3-line"></i><span>0</span></div>
+                        </div>
+                        <div class="location-info d-flex flex-wrap align-items-center justify-content-between">
+                            <div>
+                                <h3 class="fs-24 fw-extrabold"><a href="teaching.html#sathyabama"
+                                        class="text-title link-hover-primary hover-text-primary">Sathyabama Univarsity  
+                                        </a></h3>
+                                <p class="position-relative mb-0"><img src="assets/img/icons/pin-blue.svg"
+                                        alt="Icon">OMR , Chennai</p>
+                            </div>
+                            <a href="teaching.html#sathyabama"
+                                class="location-link text_primary bg-ash d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                    class="ri-arrow-right-up-line"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+
+
+
+
+
+
+
+
+
+
+
+ 
+    <div class="container style-one pt-120 pb-90">
+        <div class="text-center">
+            <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15"
+                data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">Work Details</h6>
+            <h2 class="section-title title-anim fw-black text-title mb-40" data-aos="fade-up" data-aos-duration="1100"
+                data-aos-delay="300">Read Our Diffrent domain Works</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="blog-card style-three d-flex flex-wrap align-items-center round-20 mb-30" data-aos="fade-up"
+                    data-aos-duration="1100" data-aos-delay="200">
+                    <div class="blog-img position-relative img-hover overflow-hidden round-15">
+                        <img src="assets/img/personal-2/empowering-image.png" alt="Image" class="round-15 transition">
+                    </div>
+                    <div class="blog-info">
+                        <ul class="blog-metainfo list-unstyled">
+                            <!-- <li class="position-relative fs-15 d-inline-block"><img src="assets/img/icons/calendar.svg"
+                                    alt="Icon"><a href="posts-by-date.html" class="text-para hover-text-primary">
+                                        21
+                                    Jan
+                                </a></li> -->
+                            <!-- <li class="position-relative fs-15 text-para d-inline-block"><img
+                                    src="assets/img/icons/comment.svg" alt="Icon">02 Comment</li> -->
+                        </ul>
+                        <h3 class="fs-24 fw-extrabold mb-15"><a href="teaching.html"
+                                class="text-title link-hover-primary hover-text-primary">Dedicated to Student Growth and Success</a></h3>
+                        <p class="pe-xxl-4 mb-28">Committed to providing quality education that inspires growth and empowers every learner to reach their potential..</p>
+<!-- blog-details-right-sidebar.html-->      <a href="teaching.html" 
+                            class="btn style-three font-secondary fw-semibold position-relative z-1 round-10">
+                            <span>Read More
+                                <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon"
+                                    class="transition icon-left">
+                            </span>
+                            <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon"
+                                class="transition icon-right">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-card style-three d-flex flex-wrap align-items-center round-20 mb-30" data-aos="fade-up"
+                    data-aos-duration="1100" data-aos-delay="300">
+                    <div class="blog-img position-relative img-hover overflow-hidden round-15">
+                        <img src="assets/img/design-image.png" alt="Blog Image" class="round-15 transition">
+                    </div>
+                    <div class="blog-info">
+                        <ul class="blog-metainfo list-unstyled">
+                            <!-- <li class="position-relative fs-15 d-inline-block"><img src="assets/img/icons/calendar.svg"
+                                    alt="Icon"><a href="posts-by-date.html" class="text-para hover-text-primary">19
+                                    Jan</a></li>
+                            <li class="position-relative fs-15 text-para d-inline-block"><img
+                                    src="assets/img/icons/comment.svg" alt="Icon">01 Comment</li> -->
+                        </ul>
+                        <h3 class="fs-24 fw-extrabold mb-15"><a href="#"
+                                class="text-title link-hover-primary hover-text-primary">Innovative UI Designs & Mobile App Development</a></h3>
+                        <p class="pe-xxl-4 mb-28">Creating user-focused designs and mobile applications
+that deliver seamless functionality and high performance.</p>
+                        <a href="#"
+                            class="btn style-three font-secondary fw-semibold position-relative z-1 round-10">
+                            <span>Read More
+                                <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon"
+                                    class="transition icon-left">
+                            </span>
+                            <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon"
+                                class="transition icon-right">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog Section End -->
+
+    <!-- Contact Info Section Start -->
+    <div class="bg-ash">
+        <div class="container style-one">
+            <div class="contact-card-wrap style-one d-flex flex-wrap align-items-center">
+                <div class="contact-card d-flex flex-wrap align-items-center" data-aos="fade-up"
+                    data-aos-duration="1100" data-aos-delay="200">
+                    <div
+                        class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-mauve transition">
+                        <img src="assets/img/icons/phone-black-2.svg" alt="Icon" class="transition">
+                    </div>
+                    <div class="contact-info">
+                        <span class="d-block fs-15 fs-xx-14">Contect Line</span>
+                        <a href="tel:7395871291"
+                            class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">+91
+                            739 5871 291</a>
+                    </div>
+                </div>
+                <div class="contact-card d-flex flex-wrap align-items-center" data-aos="fade-up"
+                    data-aos-duration="1100" data-aos-delay="300">
+                    <div
+                        class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-yellow transition">
+                        <img src="assets/img/icons/mail-black-2.svg" alt="Icon" class="transition">
+                    </div>
+                    <div class="contact-info">
+                        <span class="d-block fs-15 fs-xx-14">Support Email</span>
+                        <a href="mailto:gowrishankar.devpro@gmail.com"
+                            class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">gowrishankar.devpro@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-card d-flex flex-wrap align-items-center" data-aos="fade-up"
+                    data-aos-duration="1100" data-aos-delay="400">
+                    <div
+                        class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-chard transition">
+                        <img src="assets/img/icons/pin-black-2.svg" alt="Icon" class="transition">
+                    </div>
+                    <div class="contact-info">
+                        <span class="d-block fs-15 fs-xx-14">Visit Us On</span>
+                        <p class="font-secondary fw-semibold text-title fs-xx-14 mb-0">Tamil Nadu , Salem -636201 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Info Section End -->
+
+    <!-- Footer Start -->
+    <footer class="footer-area style-three">
+        <div class="footer-top position-relative z-1 bg-title pt-120">
+            <div class="container style-one">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-md-20">
+                        <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15"
+                            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">NEWSLETTER</h6>
+                        <h2 class="section-title fw-black text-white mb-0" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="300">Subscribe To Newsletter</h2>
+                    </div>
+                    <div class="col-lg-6 ps-xxl-5">
+                        <form action="#" class="newsletter-form style-two position-relative ms-xxl-5" data-aos="fade-up"
+                            data-aos-duration="1100" data-aos-delay="350">
+                            <input type="email" placeholder="Enter Your Email"
+                                class="w-100 round-10 fs-15 text-white outline-0">
+                            <button type="submit" class="position-absolute border-0 round-10 transition"><img
+                                    src="assets/img/icons/plane.svg" alt="Icon"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row pt-110 pb-90">
+                    <div class="col-xxl-3 col-xl-4 col-md-6 col-md-6 pe-xxl-4 pe-xl-4 pe-lg-5">
+                        <div class="footer-widget mb-30" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="300">
+                            <!-- <a href="index.html" class="logo d-block mb-32">
+                                <img src="assets/img/logo-white.png" alt="Logo">
+                            </a> -->
+                            <p class="comp-desc text-white fs-xx-14 mb-22">We strive to create a welcoming environment
+                                where patients feel valued respected and well informed about their health</p>
+                            <div class="social-share d-flex align-items-center">
+                                <span class="text-white me-3 fs-xx-14">Follow Us:</span>
+                                <ul class="social-profile style-two list-unstyled mb-0">
+                                    <li><a href="https://www.facebook.com/share/1Gt4bHno2v/" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-facebook-fill"></i></a></li>
+                                    <li><a href=" https://x.com/c_6018?t=hYwTtyUDqo6Q1K7oOFhPsA&s=08" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-twitter-x-line"></i></a></li>
+                                    <li><a href="https://www.instagram.com/mr_minato_.7?igsh=MTdmN3F0ZXdsY2Iweg==" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-instagram-fill"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/gowri-shankar-444364201" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-linkedin-fill"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 offset-xxl-1 col-xl-2 col-md-6 col-md-3 ps-xxl-5 ps-xl-4">
+                        <div class="footer-widget mb-30" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="400">
+                            <h3 class="footer-widget-title fs-24 fw-extrabold text-white position-relative">Quick Links
+                            </h3>
+                            <ul class="footer-menu list-unstyled mb-0">
+                                <li>
+                                    <a href="index.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Home</span>
+                                            <span class="link-title2 title text_secondary">Home</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Skill Details</span>
+                                            <span class="link-title2 title text_secondary">Skill Details</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                 <!-- blog-left-sidebar.html -->  <a href="teaching.html" class="link"> 
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Services</span>
+                                            <span class="link-title2 title text_secondary">Services</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Why Choose Us</span>
+                                            <span class="link-title2 title text_secondary">Why Choose Us</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact-us.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Contact</span>
+                                            <span class="link-title2 title text_secondary">Contact</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 offset-xxl-1 col-xl-3 col-md-3 col-md-6 ps-xxl-4 ps-xl-5">
+                        <div class="footer-widget mb-30" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="500">
+                            <h3 class="footer-widget-title fs-24 fw-extrabold text-white position-relative">Useful Links
+                            </h3>
+                            <ul class="footer-menu list-unstyled mb-0">
+                                <li>
+                                    <a href="about.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">About</span>
+                                            <span class="link-title2 title text_secondary">About</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Projects</span>
+                                            <span class="link-title2 title text_secondary">Projects</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://maps.app.goo.gl/rZUnXKy4Kv8L8CjLA?g_st=aw" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Find A Location</span>
+                                            <span class="link-title2 title text_secondary">Find A Location</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="doctors-search.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Doctors Search</span>
+                                            <span class="link-title2 title text_secondary">Doctors Search</span>
+                                        </span>
+                                    </a>
+                                </li> -->
+                                <!-- <li>
+                                    <a href="online-consultation-telemedicine.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Telemedicine Services</span>
+                                            <span class="link-title2 title text_secondary">Telemedicine Services</span>
+                                        </span>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 ps-xxl-5 ps-xl-0">
+                        <div class="footer-widget mb-30 ps-xxl-5" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="600">
+                            <h3 class="footer-widget-title fs-24 fw-extrabold text-white position-relative">Developer
+                                </h3>
+                            <div class="doctor-card-wrap">
+                                <div class="doctor-card-item d-flex flex-wrap align-items-center">
+                                    <div class="doctor-img round-10">
+                                        <img src="assets/img/personal-2/botom-img1.jpg" alt="Gowri" class="round-10">
+                                    </div>
+                                    <div class="doctor-info">
+                                        <h3 class="fs-16 fw-bold"><a href="#"
+                                                class="text-white  hover-text-secondary">B.GowriShankar</a></h3>
+                                        <span class="fs-14 d-block text-white">B.E, ECE</span>
+                                    </div>
+                                </div>
+                                <!-- <div class="doctor-card-item d-flex flex-wrap align-items-center">
+                                    <div class="doctor-img round-10">
+                                        <img src="assets/img/doctors/doc-thumb-2.jpg" alt="Gowri" class="round-10">
+                                    </div>
+                                    <div class="doctor-info">
+                                        <h3 class="fs-16 fw-bold"><a href="#"
+                                                class="text-white  hover-text-secondary">B.GowriShankar</a></h3>
+                                        <span class="fs-14 d-block text-white">B.E, ECE</span>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container style-one">
+                <div class="row  ">
+                    <div class="col-md-6 mb-sm-10">
+                        <p class="copyright-text mb-0 text-center text-md-start fs-xx-14"><i
+                                class="ri-copyright-line"></i><span class="text_primary fw-semibold">Gowrishankar</span> Is
+                            Proudly Owned By <a href="#" target="_blank"
+                                class="text_primary fw-semibold link-hover-primary">CodeiQ</a></p>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <ul class="footer-bottom-menu list-unstyled text-md-end text-center mb-0">
+                            <li><a href="#"
+                                    class="text-para hover-text-primary link-hover-primary fs-xx-14">Privacy Policy</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-para hover-text-primary link-hover-primary fs-xx-14">Terms &
+                                    Conditions</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <div id="progress-wrap" class="progress-wrap style-one">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path id="progress-path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+ 
+
+    <!-- Link of JS files -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/megamenu.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/fslightbox.js"></script>
+    <script src="/assets/js/gsap.min.js"></script>
+    <script src="/assets/js/scrollTrigger.min.js"></script>
+    <script src="/assets/js/SplitText.min.js"></script>
+    <script src="/assets/js/customEase.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

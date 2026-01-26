@@ -1,0 +1,843 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gowri Shankar - Resume</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- AOS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Remix Icon CDN for icons (optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+        --accent:#d19509;
+        --muted:#6c757d;
+        --bg-left:#eef1f4;
+        --bg-right:#2f383f;
+        --card-bg:#ffffff;
+        --primary:#2b3f7a;
+        --timeline:#d9d9d9;
+        }
+
+        /* Page layout */
+        body{
+        font-family: 'Inter', sans-serif;
+
+        color: #232323;
+        background: linear-gradient(180deg,#f7f8fa 0%, #ffffff 100%);
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height:1.5;
+        padding: 2rem 1rem;
+        }
+
+        .resume-wrap{
+        max-width: 1200px;
+        margin: 0 auto;
+        background: var(--card-bg);
+        box-shadow: 0 10px 30px rgba(15,15,20,0.06);
+        border-radius: 10px;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        }
+
+        /* Left column (sidebar) */
+        .resume-left{
+        background: linear-gradient(180deg, var(--bg-left), #f5f7fa);
+        padding: 2.2rem 1.6rem;
+        }
+
+        .profile-pic{
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1rem auto;
+        border: 8px solid rgba(255,255,255,0.85);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        background: #e6eef2;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        }
+        .profile-pic img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        }
+
+        .name{
+        text-align:center;
+        font-weight:700;
+        font-size:1.45rem;
+        color: var(--accent);
+        margin-bottom:0.2rem;
+        }
+        .role{
+        text-align:center;
+        color: var(--muted);
+        font-size:0.95rem;
+        margin-bottom:1rem;
+        }
+
+        .sidebar-section{
+        margin-top:1.4rem;
+        }
+        .sidebar-section h6{
+        font-size:1rem;
+        letter-spacing:0.6px;
+        font-weight:700;
+        color:var(--accent);
+        margin-bottom:0.5rem;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        }
+
+        .contact-line{
+        font-size:0.9rem;
+        color:#333;
+        margin-bottom:0.6rem;
+        word-break:break-word;
+        }
+        .contact-line a{ color:var(--accent); text-decoration: none; }
+
+        .skill-list{
+        list-style:none;
+        padding-left:0;
+        margin:0;
+        }
+        .skill-list li{
+        margin:0.6rem 0;
+        font-size:0.95rem;
+        color:#333;
+        display:flex;
+        align-items:center;
+        gap:0.6rem;
+        }
+        .bullet{
+        width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block;
+        }
+
+        /* Right column */
+        .resume-right{
+        padding:2.4rem 2rem;
+        }
+
+        .header{
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:1rem;
+        margin-bottom:1.2rem;
+        }
+        .header h1{
+        font-size:3.1rem;
+        margin:0;
+        font-weight:700;
+        color:#383838;
+        line-height:1;
+        }
+        .header .summary{
+        color:var(--muted);
+        max-width: 100%;
+        margin-top:0.8rem;
+        font-size:0.98rem;
+        }
+
+        .section{
+        margin-top:1.6rem;
+        padding-top:1rem;
+        border-top: 1px solid rgba(0,0,0,0.04);
+        }
+
+        /* Timeline style for internships/education */
+        .timeline{
+        position:relative;
+        padding-left:28px;
+        margin-top:0.8rem;
+        }
+        .timeline::before{
+        content:"";
+        position:absolute;
+        left:8px;
+        top:0;
+        bottom:0;
+        width:2px;
+        background:var(--timeline);
+        }
+        .timeline-item{
+        position:relative;
+        margin-bottom:1.6rem;
+        padding-left:16px;
+        }
+        .timeline-item .dot{
+        position:absolute;
+        left:-4px;
+        width:14px;height:14px;border-radius:50%;
+        background:#fff;border:3px solid var(--primary);
+        top:4px;
+        box-shadow:0 1px 6px rgba(0,0,0,0.05);
+        }
+        .timeline-item h5{
+        margin-bottom:0.3rem;
+        font-size:1.05rem;
+        }
+        .timeline-item p{ color:var(--muted); margin:0; font-size:0.95rem; }
+
+        /* progress bars */
+        .progress{
+        height:10px;
+        background:#e9ecef;
+        border-radius:10px;
+        overflow:hidden;
+        }
+        .progress .progress-bar{
+        height:10px;
+        border-radius:10px;
+        transition: width 1.2s ease-in-out;
+        }
+
+        /* contact small lines and separators */
+        .sep-line{
+        height:1px;background:rgba(0,0,0,0.06);margin:0.7rem 0 1rem;
+        }
+
+        /* print styles */
+        @media print{
+        body{ padding:0; background:#fff; }
+        .resume-wrap{ box-shadow:none; border-radius:0; grid-template-columns: 1fr; }
+        .resume-left{display:block;width:100%;}
+        .header h1{ font-size:2.2rem; }
+        .no-print{ display:none !important; }
+        a::after{ content: " (" attr(href) ")"; font-size:9px; color: #666; }
+        }
+
+        /* mobile / small screens */
+        @media (max-width: 991px){
+        .resume-wrap{
+            grid-template-columns: 1fr;
+        }
+        .header .summary{ max-width:100%; }
+        .profile-pic{ width:140px; height:140px; }
+        .header h1{ font-size:2.3rem; }
+        }
+
+        /* small animations for header */
+        .name-underline{
+        width:48px;height:4px;background:var(--primary);border-radius:4px;margin:8px auto 0;opacity:0.9;
+        }
+
+        /* subtle hover for timeline items */
+        .timeline-item:hover h5{ color: var(--primary); transition: color .2s }
+
+
+        /* Default (desktop/tablet) layout */
+.resume-left {
+  background: linear-gradient(180deg, var(--bg-left), #f5f7fa);
+  padding: 1.2rem 1.6rem;
+}
+
+/* ✅ Responsive adjustments for screens ≤ 500px */
+@media (max-width: 500px) {
+  
+  .resume-left {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    position: relative;
+    left: 0;
+  }
+
+  .text-end {
+    text-align: right !important;
+    position: relative;
+    left: 0;
+  }
+
+  .w-100 {
+    width: 100% !important;
+  }
+
+  .mb-3 {
+    margin-bottom: 1rem !important;
+    width: 100%;
+  }
+
+  .timeline-item p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .edu,
+  .g-3,
+  .no-print,
+  #internships,
+  #about {
+    width: 100%;
+  }
+}
+
+/* ✅ Extra small screens ≤ 380px */
+@media (max-width: 380px) {
+  .resume-left {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .text-end {
+    text-align: left !important;
+  }
+
+  .timeline-item p {
+    font-size: 0.85rem;
+  }
+
+  .edu,
+  .g-3,
+  .no-print,
+  #internships,
+  #about {
+    width: 100%;
+  }
+}
+:root{
+    --accent:#d19509;
+    --accent-dark:#b57a05;
+    --btn-radius:10px;
+    --dur:700ms;
+  }
+ /* shared button styles */
+  .btn {
+    position:relative;
+    overflow:hidden;
+    display:inline-block;
+    padding:10px 26px;
+    border-radius:var(--btn-radius);
+    font-weight:700;
+    cursor:pointer;
+    border:2px solid var(--accent);
+    transition:transform 180ms ease, box-shadow 200ms ease;
+    -webkit-tap-highlight-color: transparent;
+    user-select:none;
+  }
+
+  .btn:active{ transform: translateY(1px); }
+
+  /* text must be above pseudo elements */
+  .btn > span{ position:relative; z-index:2; display:inline-block; transition:color calc(var(--dur)/1.2) ease; }
+
+  /* the pouring fill element (covers full button, sits under text) */
+  .btn::before{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    transform: translateY(100%); /* start hidden (below) */
+    transition: transform var(--dur) cubic-bezier(.2,.9,.2,1);
+    z-index:1;
+    border-radius:inherit;
+    pointer-events:none;
+  }
+
+  /* subtle liquid surface wave that moves across during hover */
+
+  /* animate the wave while hovered */
+  .btn.wave-on::after{
+    opacity:0.9;
+    animation: waveMove 1100ms linear infinite;
+  }
+
+  @keyframes waveMove{
+    0%{ transform: translateX(-30%) translateY(0) rotate(-3deg); }
+    50%{ transform: translateX(-10%) translateY(-3%) rotate(-3deg); }
+    100%{ transform: translateX(-30%) translateY(0) rotate(-3deg); }
+  }
+
+  /* -------------------------
+     Outline button: fills with accent color
+     ------------------------- */
+  .btn-outline-primary1{
+    background:transparent;
+    color:var(--accent);
+  }
+
+  .btn-outline-primary1::before{
+  
+    box-shadow: 0 8px 20px rgba(209,149,9,0.12), inset 0 -6px 12px rgba(0,0,0,0.06);
+    transform: translateY(100%);
+  
+  }
+
+  .btn-outline-primary1:hover{
+     background-color: var(--accent);
+    box-shadow: 0 8px 30px rgba(209,149,9,0.12);
+    color: white;
+  }
+
+  .btn-outline-primary1:hover::before{
+    transform: translateY(0); /* fill up */
+  }
+
+  .btn-outline-primary1.wave-on:hover::after{ /* show wave while filling */
+    opacity:0.9;
+  }
+
+  /* text must become white once fill covers it */
+  .btn-outline-primary1:hover > span{ color:#fff; }
+
+  /* -------------------------
+     Solid primary button: base color + pouring sheen overlay
+     ------------------------- */
+  .btn-primary1{
+    background:var(--accent);
+    color:#fff;
+    box-shadow: 0 6px 18px rgba(209,149,9,0.12);
+  }
+
+  /* here ::before is a lighter glossy liquid overlay that pours up */
+  .btn-primary1::before{
+    background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0) 100%);
+    mix-blend-mode: overlay;
+    transform: translateY(100%);
+  }
+
+  .btn-primary1:hover{
+    box-shadow: 0 12px 28px rgba(209,149,9,0.16);
+  }
+
+  .btn-primary1:hover::before{
+    transform: translateY(0); /* overlay rises to simulate pouring */
+  }
+
+  .btn-primary1.wave-on:hover::after{
+    opacity:0.8;
+  }
+
+  /* optional small lift */
+  .btn:hover{ transform: translateY(-3px); }
+
+  /* small responsive tweaks */
+  @media (max-width:420px){
+    .btn{ padding:10px 18px; font-size:14px; }
+  }
+/* Thank You Section */
+.gs-section.thankyou {
+  margin-top: 2rem;
+  padding: 1.4rem 1.2rem;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.gs-section.thankyou:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+
+/* Small button variant for thank you section */
+.gs-btn-sm {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+}
+
+
+    </style>
+    </head>
+    <body>
+
+    <div class="resume-wrap" data-aos="fade-up" data-aos-duration="900">
+        <!-- LEFT SIDEBAR -->
+        <aside class="resume-left">
+        <div class="profile-pic" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="120">
+            <!-- Replace the src below with: /mnt/data/resume-img.jpg to use your uploaded image -->
+            <img src="assets/img/personal-2/developer-img1.jpg " alt="Profile photo">
+        </div>
+
+        <div class="name" data-aos="fade-right" data-aos-duration="700">Gowri Shankar</div>
+        <div class="role" data-aos="fade-right" data-aos-duration="700" data-aos-delay="80"> Software Developer</div>
+        <div class="name-underline"></div>
+
+        <div class="sidebar-section" data-aos="fade-right" data-aos-duration="700" data-aos-delay="140">
+            <h6 style="color: #2b3f7a;">Contact</h6>
+            <div class="contact-line mb-4"><strong>Phone</strong><br><a href="tel:73958721291">+91 7395871291</a></div>
+            <div class="contact-line mb-4"><strong>Email</strong><br><a href="mailto:gowrishankr1142003@gmail.com"> gowrishankar1142003@gmail.com</a></div>
+            <div class="contact-line mb-4"><strong>Address</strong><br>Salem, Tamil Nadu, India</div>
+            <div class="contact-line mb-4"><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/gowri-shankar-444364201" target="_blank">linkedin.com/in/gowri-shankar-444364201</a></div>
+        </div>
+
+        <div class="sidebar-section" data-aos="fade-right" data-aos-duration="700" data-aos-delay="180">
+            <h6 style="color: #2b3f7a;">Soft Skills</h6>
+            <ul class="skill-list">
+            <li class="mb-3"><span class="bullet "></span> Communication</li>
+            <li class="mb-3"><span class="bullet"></span> Problem-Solving</li>
+            <li class="mb-3"><span class="bullet"></span> Teamwork</li>
+            <li class="mb-3"><span class="bullet"></span> Time Management</li>
+            <li class="mb-3"><span class="bullet"></span> Adaptability</li>
+            <li class="mb-3"><span class="bullet"></span> Critical Thinking</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section" data-aos="fade-right" data-aos-duration="700" data-aos-delay="220">
+            <h6 style="color: #2b3f7a;">Technical Skills</h6>
+            <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+                <small>HTML</small><small>100%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="100"></div>
+            </div>
+
+            <div class="d-flex justify-content-between mb-1">
+                <small>CSS</small><small>95%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="95"></div>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
+                <small>Bootstrap - 5</small><small>99%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="99"></div>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
+                <small>JavaScript</small><small>80%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="80"></div>
+            </div>
+
+            <div class="d-flex justify-content-between mb-1">
+                <small>React Js</small><small>70%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="70"></div>
+            </div>
+             <div class="d-flex justify-content-between mb-1">
+                <small>Core Java</small><small>100%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="100"></div>
+            </div>
+              <div class="d-flex justify-content-between mb-1">
+                <small>My Sql-Database</small><small>90%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="90"></div>
+            </div>
+              <div class="d-flex justify-content-between mb-1">
+                <small>Linux</small><small>70%</small>
+            </div>
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" data-target="70"></div>
+            </div>
+            </div>
+        </div>
+         <div class="sidebar-section" data-aos="fade-right" data-aos-duration="700" data-aos-delay="180">
+            <h6 style="color: #2b3f7a;">languages</h6>
+            <ul class="skill-list">
+            <li class="mb-3"><span class="bullet"></span> Tamil</li>
+            <li class="mb-3"><span class="bullet"></span> English</li>
+            <li class="mb-3"><span class="bullet"></span> Hindi</li>
+            
+            </ul>
+        </div>
+
+        <div class="sidebar-section no-print" data-aos="fade-up" data-aos-duration="700" data-aos-delay="260">
+            <button class="btn btn-outline-primary1 w-100 mb-2  " onclick="window.print()">Download / Print Resume</button>
+            <a href="index.html" class="btn btn-primary1 w-100  ">Go To Home</a>
+        </div>
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+        <main class="resume-right">
+        <div class="header">
+            <div>
+            <h1 data-aos="fade-down" data-aos-duration="700">Gowri Shankar</h1>
+            <!-- <div class="summary" data-aos="fade-down" data-aos-duration="700" data-aos-delay="60">
+I am an organized, efficient, and results-driven Software Developer with a passion for building innovative
+ and reliable solutions. I continuously explore new technologies and best practices to enhance development 
+ efficiency and software quality. Committed to writing clean,
+ maintainable code and contributing effectively to collaborative, fast-paced development environments.            </div> -->
+            </div>
+            <div class="text-end no-print" style="min-width:170px;">
+            <div class="badge rounded-pill text-bg-light py-2 px-3" data-aos="zoom-in" data-aos-duration="700">Working</div>
+            <div style="margin-top:12px;">
+                <a href="resume.html" class="btn btn-outline-secondary btn-sm" onclick="scrollToSection('#')" data-aos="fade-left">  Go To Home</a>
+            </div>
+            </div>
+        </div>
+
+        <!-- About / Summary -->
+        <section class="section" id="about" data-aos="fade-up" data-aos-duration="700">
+            <h4>Summary</h4>
+            <p style="color:var(--muted); max-width:900px;">
+            I am an organised, efficient and hard working person, and am willing to discover and accept new ideas which can be put into practice effectively. Passionate about software development, IoT, and embedded systems. Quick learner with hands-on internship experience building home automation and embedded solutions.
+            </p>
+        </section>
+   <!-- Education -->
+        <section class="section edu" id="education" data-aos="fade-up" data-aos-duration="800">
+            <h4>Education</h4>
+            <div class="timeline">
+              <div class="timeline-item" data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+                <div class="dot"></div>
+                <h5>Completed in 2024 — AVS Engineering College , Salem</h5>
+                <p>B.E ECE</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="700" data-aos-delay="140">
+                <div class="dot"></div>
+                <h5>Completed in 2020 — Government Higher Secondary School, Mallur, Salem</h5>
+                <p>HSLC</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+                <div class="dot"></div>
+                <h5>Completed in 2018 — Government Higher Secondary School, Dhaksanaanpatty, Salem</h5>
+                <p>SSLC</p>
+            </div>
+
+            
+
+            
+            </div>
+        </section>
+        <!-- Internships / Experience -->
+        <section class="section" id="internships" data-aos="fade-up" data-aos-duration="800">
+            <h4>Work Experience</h4>
+
+            <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right" data-aos-duration="700" data-aos-delay="80">
+                <div class="dot"></div>
+                <h5>Web Developer – TechQuest (IT Company)</h5>
+           
+                <ul class="skill-list">
+            <li><span class="bullet"></span> Developed and maintained dynamic web applications based on client requirements.</li>
+            <li><span class="bullet"></span> Worked on frontend and backend integration for smooth application performance.</li>
+            <li><span class="bullet"></span> Participated in debugging, testing, and production-level issue resolution</li>
+            <li><span class="bullet"></span> Time ManagementParticipated in debugging, testing, and production-level issue resolution</li>
+            
+            </ul>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-right" data-aos-duration="700" data-aos-delay="140">
+                <div class="dot"></div>
+                <h5>Technical Trainer – Java Full Stack (Colleges)</h5>
+               <ul class="skill-list">
+            <li><span class="bullet"></span>Delivered Java Full Stack training to college students with real-time project exposure</li>
+            <li><span class="bullet"></span> Worked on frontend and backend integration for smooth application performance.</li>
+              <li><span class="bullet"></span> Trained students in Core Java, Advanced Java, Spring Boot, REST APIs, and Web Technologies</li>
+            <li><span class="bullet"></span> Conducted hands-on coding sessions and practical demonstrations</li>
+            <li><span class="bullet"></span> Guided students in project development and problem-solving techniques</li>
+            
+            </ul>
+            </div>
+            </div>
+        </section>
+
+     
+
+       <section class="section" id="projects" data-aos="fade-up" data-aos-duration="800">
+    <h4>Projects & Technical Skills</h4>
+
+    <div class="row g-3 mt-2">
+
+        <!-- LEFT SIDE – PROJECTS -->
+        <div class="col-md-6">
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Vizeeta Hospital Website (Saudi Arabia)</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Developed a dynamic hospital website with patient services, admin management, and secure backend integration.
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Sakthi Group of Institutions Website</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Designed and developed an institutional website with responsive UI, content management, and performance optimization.
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Hostel Management System</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Built a web-based system for room allocation, student records, and hostel administration.
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm">
+                <h6>College Management System</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Developed student management and accounts management modules for colleges with database integration.
+                </p>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE – TOOLS & TECHNOLOGIES -->
+        <div class="col-md-6">
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Frontend Technologies</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    HTML5, CSS3, JavaScript, Bootstrap, Responsive Design
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Backend Technologies</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Java, Spring Boot, RESTful APIs
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Database</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    MySQL, PostgreSQL
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm mb-3">
+                <h6>Tools & Platforms</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Git, GitHub, VS Code, Postman
+                </p>
+            </div>
+
+            <div class="card border-0 p-3 shadow-sm">
+                <h6>Deployment & Others</h6>
+                <p class="mb-0" style="color:var(--muted);">
+                    Linux Server, Hosting, Domain Configuration
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+        <!-- Footer contact quick -->
+     <section class="gs-section gs-no-print no-print thankyou" data-aos="fade-up" data-aos-duration="700">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div>
+      <strong class="mb-5">Thank you for visiting my resume!</strong><br>
+      <small style="color:var(--gs-muted);">
+        I appreciate your time and interest — feel free to reach out for collaborations or opportunities.
+      </small>
+    </div>
+
+    <!-- ✅ Added Button -->
+    <div>
+      <a href="index.html" class="btn     px-4 py-2">
+       Go to Home
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+ 
+@media (max-width: 576px) {
+  .thankyou .d-flex {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .thankyou .btn {
+    align-self: flex-start;
+  }
+}
+</style>
+
+
+
+        </main>
+    </div>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Init AOS
+        AOS.init({
+        once: true,
+        duration: 700,
+        easing: 'ease-out-cubic'
+        });
+
+        // Animate the progress bars when visible
+        function animateProgressBars(){
+        const bars = document.querySelectorAll('.progress-bar');
+        bars.forEach(bar => {
+            const target = parseInt(bar.getAttribute('data-target') || '0', 10);
+            // small stagger
+            setTimeout(()=> {
+            bar.style.width = target + '%';
+            // keep a color gradient
+            bar.style.background = 'linear-gradient(90deg,  #f17312, #d19509)';
+            }, 250);
+        });
+        }
+
+        // Intersection observer to trigger progress bars when visible
+        if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+            if(entry.isIntersecting){
+                animateProgressBars();
+                obs.disconnect();
+            }
+            });
+        }, {threshold:0.2});
+        const el = document.querySelector('.resume-left .progress');
+        if(el) observer.observe(el);
+        } else {
+        // fallback
+        animateProgressBars();
+        }
+
+        // scrollTo helper
+        function scrollToSection(id){
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+
+        // Optional: tiny keyboard shortcut 'p' for print (developer nicety)
+        document.addEventListener('keydown', (e) => {
+        if(e.key === 'p' && (e.ctrlKey || e.metaKey)) {
+            // ctrl/cmd + p -> use browser print (this will open print dialog anyway)
+            // prevent double
+            e.preventDefault();
+            window.print();
+        }
+        });
+    </script>
+    </body>
+    </html>

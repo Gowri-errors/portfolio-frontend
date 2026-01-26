@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+          <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Link of CSS files -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/aos.css">
+        <link rel="stylesheet" href="assets/css/remixicon.css">
+        <link rel="stylesheet" href="assets/css/flaticon_hinton.css">
+        <link rel="stylesheet" href="assets/css/header.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/footer.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <link rel="stylesheet" href="assets/css/dark-theme.css">
+        <link rel="stylesheet" href="assets/css/update.css">
+        <title>About Us</title>
+        <link rel="icon" type="image/png" href="assets/img/main-icon.png">
+        <style>
+            @media only screen and (max-width: 767px) {
+    .ptb-120 {
+        padding-top: 10px;
+        padding-bottom: 60px;
+    }
+}
+.breadcrumb-area {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+        </style>
+    </head>
+    <body>
+
+     <!--  Preloader Start -->
+        <div class="preloader-area d-flex flex-column align-items-center justify-content-center h-100" id="preloader">
+            <!-- <span class="d-block stethoscope-icon"><i class="ri-stethoscope-line"></i></span> -->
+            <span class="text-primary mt-2 fw-medium">Loading...</span>
+        </div>
+        <!--  Preloader End -->
+
+        <!-- Theme Switcher Start -->
+        <div class="switch-theme-mode">
+            <label id="switch" class="switch">
+                <input type="checkbox" onchange="toggleTheme()" id="slider">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <!-- Theme Switcher End -->
+         
+        <!-- Custom Cursor -->
+        <!-- <div class="cursor style-one"></div>
+        <div class="cursor-inner style-one"></div> -->
+
+        <!-- Navbaar Top Start -->
+        <div class="navbar-top bg-title">
+            <div class="container style-one">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pe-lg-0 mb-md-6">
+                        <!-- <p class="fs-15 text-white text-lg-start text-center mb-0">Caring Today for a Healthier Tomorrow and Forever<a href="doctors-list.html" class="ms-xl-3 ms-2 text-white fw-medium link-hover-white">Find A Doctor<img src="assets/img/icons/right-arrow-white.svg" alt="Icon"></a></p> -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="navbar-top-options d-flex flex-wrap align-items-center justify-content-lg-end justify-content-center">
+                            <div class="navbar-option-item position-relative">
+                                <!-- <a href="online-payment.html" class="fs-15 text-white link-hover-white">Pay Your Bill</a> -->
+                            </div>
+                            <div class="navbar-option-item position-relative">
+                                <a href="#" class="fs-15 text-white link-hover-white">Service Price List</a>
+                            </div>
+                            <div class="navbar-option-item position-relative">
+                                <!-- <div class="language-selector position-relative d-inline-block">
+                                    <div class="selected-language d-flex align-items-center" id="selected-language">
+                                        <span class="flag-container rounded-circle">
+                                            <img src="assets/img/dashboard/flag/uk.png" alt="US Flag" class="rounded-circle">
+                                        </span>
+                                        <span class="lang-name fs-14 text-white">English</span>
+                                    </div>
+                                    <div class="dropdown" id="dropdown">
+                                        <div class="dropdown-item" data-lang="en" data-flag="assets/img/dashboard/flag/uk.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/uk.png" alt="US Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">English</span>
+                                        </div>
+                                        <div class="dropdown-item" data-lang="fr" data-flag="assets/img/dashboard/flag/france.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/france.png" alt="US Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">French</span>
+                                        </div>
+                                        <div class="dropdown-item" data-lang="ar" data-flag="assets/img/dashboard/flag/uae.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/uae.png" alt="French Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">Arabic</span>
+                                        </div>
+                                        <div class="dropdown-item" data-lang="ch" data-flag="assets/img/dashboard/flag/china.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/china.png" alt="Spanish Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">Chinese</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbaar Top End -->
+
+        <!-- Navbar Center Start -->
+        <div class="navbar-center style-one d-none d-lg-block">
+            <div class="container style-one">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-2 col-5">
+                        <!-- <a href="index.html" class="logo">
+                            <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                            <img src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                        </a> -->
+                    </div>
+                    <div class="col-xl-9 col-lg-10 col-7">
+                        <div class="contact-card-wrap style-two d-none d-lg-flex flex-wrap align-items-center justify-content-lg-end ">
+                            <div class="contact-card d-flex flex-wrap align-items-center">
+                                <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-white transition">
+                                    <img src="assets/img/icons/phone-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Contect Line</span>
+                                    <a href="tel:7395871291" class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">+91 (739) 581 291</a>
+                                </div>
+                            </div>
+                            <div class="contact-card d-flex flex-wrap align-items-center">
+                                <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-white transition">
+                                    <img src="assets/img/icons/mail-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Support Email</span>
+                                    <a href="mailto:gowrishankar.devpro@gmail.com" class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">gowrishankar.devpro@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-card d-flex flex-wrap align-items-center">
+                                <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-white transition">
+                                    <img src="assets/img/icons/pin-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Visit Us On</span>
+                                    <p class="font-secondary fw-semibold text-title fs-xx-14 mb-0">TamilNadu Salem-636203</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar Center End -->
+
+        <!-- Navbar Area Start -->
+        <div class="navbar-area style-one" id="navbar">
+            <div class="container style-one">
+                <div class="navbar-wrapper d-flex justify-content-between align-items-center p-0">
+                    <!-- <a href="index.html" class="logo d-lg-none">
+                        <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                        <img src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                    </a> -->
+                    <div class="menu-area me-auto">
+                        <div class="overlay"></div>
+                        <nav class="menu">
+                            <div class="menu-mobile-header">
+                                <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i class="ri-arrow-left-s-line"></i></button>
+                                <button type="button" class="menu-mobile-close bg-transparent border-0"><i class="ri-close-line"></i></button>
+                            </div>
+                            <ul class="menu-section p-0 mb-0">
+                                <li class="menu-item-has-children">
+                                <a href="index.html" class="active">HOME</a>
+
+                            </li>
+                               <li><a href="about.html">ABOUT</a></li>
+                                 <li class="menu-item-has-children">
+                                <a href="javascript:void(0)">SERVICES</a>
+                                <ul class="menu-subs menu-column-1">
+                                    <li class="menu-item-has-children">
+                                        <a href="teaching.html">TEACHING</a>
+                                       
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="javascript:void(0)">DEVELOPER</a>
+                                        
+                                    </li>
+                                    <!-- <li><a href="error-404.html">Error 404</a></li> -->
+                                </ul>
+                            </li>
+                             <li class="menu-item-has-children">
+    <a href="javascript:void(0)">PROJECTS</a>
+    <ul class="menu-subs menu-column-1">
+        <li><a href="#projects">Web Development Projects</a></li>
+        
+     
+    </ul>
+</li> <li><a href="skil.html">SKiLLS</a></li>
+                              <li class="menu-item-has-children">
+                                <a href="javascript:void(0)">CONTECT</a>
+                                 
+                            </li>
+                               
+                                
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                        <div class="option-item d-lg-none">
+                            <div class="contact-card-btn">
+                                <button class="dropdown-toggle d-flex align-items-center position-relative bg-transparent border-0 ms-auto transition" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                    <img src="assets/img/dashboard/icons/dot.svg" alt="Dot Icon" class="action-btn">
+                                </button>
+                                <div class="dropdown-menu top-1 border-0 round-5">
+                                    <div class="contact-card-wrap style-two d-flex flex-wrap">
+                                        <div class="contact-card d-flex flex-wrap align-items-center">
+                                            <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                                <img src="assets/img/icons/phone-blue.svg" alt="Icon" class="transition">
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="d-block fs-15 fs-xx-14">Contect Line</span>
+                                                <a href="tel:739587291" class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">+91 (739) 958 712 91</a>
+                                            </div>
+                                        </div>
+                                        <div class="contact-card d-flex flex-wrap align-items-center">
+                                            <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                                <img src="assets/img/icons/mail-blue.svg" alt="Icon" class="transition">
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="d-block fs-15 fs-xx-14">Support Email</span>
+                                                <a href="mailto:gowrishankar.devpro@gmail.com" class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">gowrishankar@gmail.com</a>
+                                            </div>
+                                        </div>
+                                        <div class="contact-card d-flex flex-wrap align-items-center">
+                                            <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-ash transition">
+                                                <img src="assets/img/icons/pin-blue.svg" alt="Icon" class="transition">
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="d-block fs-15 fs-xx-14">Visit Us On</span>
+                                                <p class="font-secondary fw-semibold text-title fs-xx-14 mb-0">TamilNadu Salem-636203</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                                        <span>Contect Me
+                                            <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-left">
+                                        </span>
+                                        <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-right">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option-item">
+                            <!-- <div class="currency-selector position-relative">
+                                <img src="assets/img/icons/dollar.svg" alt="Icon">
+                                <select class="text-title outline-0 fw-semibold bg-transparent border-0">
+                                    <option value="1">USD</option>
+                                    <option value="2">GBP</option>
+                                    <option value="3">YEN</option>
+                                </select>
+                            </div> -->
+                        </div>
+                        <div class="option-item d-lg-inline-block">
+                            <a href="#" class="header-link font-secondary fw-semibold position-relative d-inline-block text-title hover-text-secondary link-hover-secondary transition">
+                                <i class="ri-account-circle-line"></i>
+                                <span class="d-none d-lg-inline-block">Skills / Details</span>
+                            </a>
+                        </div>
+                        <div class="option-item d-lg-none me-0">
+                            <button type="button" class="menu-mobile-trigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="option-item d-none d-lg-block">
+                            <a href="#" class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                                <span>Contect Me...!
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-left">
+                                </span>
+                                <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-right">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- Navbar Area End-->
+
+        <!-- Breadcrumb Section Start -->
+        <div class="breadcrumb-area bg-ash">
+            <div class="breadcrumb-wrap bg-f bg-1 position-relative z-1 round-20">
+                <!-- <img src="assets/img/personal-2/tech-image2.png" alt="Shape" class="br-shape-one position-absolute z-1 bounce">
+                <img src="assets/img/breadcrumb/br-shape-2.png" alt="Shape" class="br-shape-two position-absolute z-1 rotate"> -->
+                <div class="container">
+                    <h2 class="section-title fw-bold text-white text-center mb-13">About Us</h2>
+                    <ul class="br-menu text-center list-unstyled mb-0">
+                        <li class="position-relative fs-xx-14 d-inline-block"><a href="index.html">Home</a></li>
+                        <!-- <li class="position-relative fs-xx-14 d-inline-block"><a href="doctors-list.html">Doctors</a></li> -->
+                        <li class="position-relative fs-xx-14 d-inline-block">About </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb Section End -->
+ 
+<!-- Why Choose Us Section Start -->
+        <div class="wh-area style-one bg-ash ptb-120" id="whychoose">
+            <div class="container style-one">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="wh-content mb-lg-30">
+                            <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">WHY CHOOSE GOWRI SHANKAR</h6>
+                            <h2 class="section-title title-anim fw-black text-title mb-15 me-xxl-5" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">Professional Software Development Network</h2>
+                            <p class="fs-xx-14 mb-28" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">Building efficient, secure, and scalable digital solutions with a strong focus on user experience and modern technologies.</p>
+                            <div class="feature-item-wrap me-xxl-5">
+                                <div class="feature-item d-flex flex-wrap" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="500">
+                                    <span class="feature-icon position-relative">
+                                        <img src="assets/img/icons/check.svg" alt="Icon">
+                                    </span>
+                                    <div class="feature-info">
+                                        <h3 class="fs-24 fw-extrabold text-title mb-10">Innovative & Scalable Solutions</h3>
+                                        <p class="mb-0">Delivering tailored web and mobile applications using cutting-edge frameworks and clean coding practices to ensure long-term performance and maintainability.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item d-flex flex-wrap" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="600">
+                                    <span class="feature-icon position-relative">
+                                        <img src="assets/img/icons/check.svg" alt="Icon">
+                                    </span>
+                                    <div class="feature-info">
+                                        <h3 class="fs-24 fw-extrabold text-title">Quality Development Process</h3>
+                                        <p class="mb-0">Following industry-standard development cycles, version control, and continuous testing to maintain consistency, quality, and reliability in every project.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item d-flex flex-wrap" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="700">
+                                    <span class="feature-icon position-relative">
+                                        <img src="assets/img/icons/check.svg" alt="Icon">
+                                    </span>
+                                    <div class="feature-info">
+                                        <h3 class="fs-24 fw-extrabold text-title">Highly Skilled & Dedicated Developer</h3>
+                                        <p class="mb-0">Committed to writing clean, efficient, and optimized code while staying updated with emerging technologies and best practices in software engineering.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item d-flex flex-wrap" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="800">
+                                    <span class="feature-icon position-relative">
+                                        <img src="assets/img/icons/check.svg" alt="Icon">
+                                    </span>
+                                    <div class="feature-info">
+                                        <h3 class="fs-24 fw-extrabold text-title">Full-Stack & API Integration Expertise</h3>
+                                        <p class="mb-0">Experienced in building complete full-stack applications with seamless front-end and back-end integration, ensuring smooth functionality and performance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="btn-wrap d-flex flex-wrap align-items-center">
+                                <a href="about.html" class="btn style-one font-secondary fw-semibold position-relative z-1 round-10">
+                                    <span>Read More
+                                        <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-left">
+                                    </span>
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-right">
+                                </a>
+                                <div class="google-ratings position-relative">
+                                    <img src="assets/img/icons/google.svg" alt="Google Icon">
+                                    <h6 class="fs-22 fw-semibold mb-15">4.9/5.0</h6>
+                                    <span class="fs-xx-14">Google Ratings</span>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-xl-6 ps-xxl-4">
+                        <div class="wh-img-wrap bg-f position-relative round-15" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
+                            <div class="circle-text-wrap d-flex flex-column align-items-center justify-content-center bg-ash position-absolute">
+                                <img src=" assets/img/comp-img.png" alt="Logo" style="width: 75px;" class="d-block mx-auto">
+                                <img src="assets/img/sofware-text.png" alt="Circle text" class="circle-text position-absolute rotate"     >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Why Choose Us Section End -->
+
+
+        
+
+         <!-- Funfacts Section Start -->
+        <div class="bg-title counter-area round-20 pt-120 pb-90">
+            <div class="container style-one">
+                <div class="counter-card-wrap style-two d-flex flex-wrap">
+                    <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                        <div class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-chard">
+                           <img src="assets/img/icons/award-black.svg" alt="Icon">
+                        </div>
+                        <div class="counter-text">
+                            <h4 class="text-white fw-black"><span class="counter fw-black">15+</span>+</h4>
+                            <p class="fs-xxl-20 text-white mb-0">Total colleges</p>
+                        </div>
+                    </div>
+                    <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                        <div class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-mauve">
+                           <img src="assets/img/icons/mission.svg " alt="Icon">
+                        </div>
+                        <div class="counter-text">
+                            <h4 class="text-white fw-black"><span class="counter fw-black">1000+</span>+</h4>
+                            <p class="fs-xxl-20 text-white mb-0">Trained Students</p>
+                        </div>
+                    </div>
+                    <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                        <div class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-jordyBlue">
+                           <img src=" assets/img/icons/focus.svg" alt="Icon">
+                        </div>
+                        <div class="counter-text">
+                            <h4 class="text-white fw-black"><span class="counter fw-black">10+</span>+</h4>
+                            <p class="fs-xxl-20 text-white mb-0">knows languages</p>
+                        </div>
+                    </div>
+                    <div class="counter-card d-flex flex-wrap align-items-center mb-30">
+                        <div class="counter-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-berylGreen">
+                           <img src="assets/img/icons/phone-large.svg " alt="Icon">
+                        </div>
+                        <div class="counter-text">
+                            <h4 class="text-white fw-black"><span class="counter fw-black">13</span>+</h4>
+                            <p class="fs-xxl-20 text-white mb-0">companies</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Funfacts Section End -->
+
+        <!-- Top Doctors Sections Start -->
+        <div class="container style-one pt-120 pb-90">
+            <div class="text-center">
+                <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">Our TEAM</h6>
+                <h2 class="section-title fw-black text-title text-center mb-35" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">Meet Our developers</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xxl-3 col-xl-4 col-md-6">
+                    <div class="doctor-card style-five round-20 mb-30 transition">
+                        <div class="doctor-img position-relative round-10">
+                            <img src="assets/img/personal-2/developer-img1.jpg " alt="Doctor" class="round-10">
+                            <div class="share-action d-flex flex-wrap position-absolute">
+                                <div class="share-btn position-relative">
+                                    <span class="d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22"><i class="ri-share-line"></i></span>
+                                    <ul class="social-profile list-unstyled mb-0 transition">
+                                        <li><a href=" https://www.facebook.com/share/1Gt4bHno2v/" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-facebook-fill"></i></a></li>
+                                        <li><a href=" https://x.com/c_6018?t=hYwTtyUDqo6Q1K7oOFhPsA&s=08 " target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-twitter-x-line"></i></a></li>
+                                        <li><a href="https://www.instagram.com/mr_minato_.7?igsh=MTdmN3F0ZXdsY2Iweg==" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-instagram-fill"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/gowri-shankar-444364201" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-linkedin-fill"></i></a></li>
+                                    </ul>
+                                </div>
+                                <button class="add-to-wishlist border-0 d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22 transition"><i class="ri-heart-3-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between mb-20">
+                                <a   class="doctor-category style-one d-inline-block bg-ash text_secondary fw-medium round-5 transition">Software Developer</a>
+                                <div class="ratings">
+                                    <i class="ri-star-fill"></i>
+                                    <span class="ms-1">5.0</span>
+                                </div>
+                            </div>
+                            <h3 class="fs-24 fw-extrabold mb-8"><a   class="text-title hover-text-primary link-hover-primary transition">Gowrishankar B</a></h3>
+                            <ul class="doctor-degree list-unstyled mb-15">
+                                <li class="d-inline-block">B.E</li>
+                                <li class="d-inline-block">ECE</li>
+                                
+                            </ul>
+                            <p class="doctors-location position-relative ps-4"><img src="assets/img/icons/pin-black.svg" alt="Icon" class="position-absolute start-0">India Tamil-Nadu   636203</p>
+                            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                <a href="#" class="btn style-three font-secondary fw-semibold position-relative z-1 round-10">
+                                    <span>Contect
+                                        <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon" class="transition icon-left">
+                                    </span>
+                                    <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon" class="transition icon-right">
+                                </a>
+                               <a href="tel:7395871291" class="position-relative booking-link fs-xx-14 fw-semibold text-title link-hover-title"><img src="assets/img/icons/phone-black.svg" alt="Icon" class="position-absolute start-0 top-2">Ph Now </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-xl-4 col-md-6">
+                    <div class="doctor-card style-five round-20 mb-30 transition">
+                        <div class="doctor-img position-relative round-10">
+                            <img src="assets/img/personal-2/developer-img1.jpg" alt="Doctor" class="round-10">
+                            <div class="share-action d-flex flex-wrap position-absolute">
+                                <div class="share-btn position-relative">
+                                    <span class="d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22"><i class="ri-share-line"></i></span>
+                                    <ul class="social-profile list-unstyled mb-0 transition">
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-facebook-fill"></i></a></li>
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-twitter-x-line"></i></a></li>
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-instagram-fill"></i></a></li>
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-linkedin-fill"></i></a></li>
+                                    </ul>
+                                </div>
+                                <button class="add-to-wishlist border-0 d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22 transition"><i class="ri-heart-3-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between mb-20">
+                                <a   class="doctor-category style-one d-inline-block bg-ash text_secondary fw-medium round-5 transition">Backend Developer</a>
+                                <div class="ratings">
+                                    <i class="ri-star-fill"></i>
+                                    <span class="ms-1">5.0</span>
+                                </div>
+                            </div>
+                            <h3 class="fs-24 fw-extrabold mb-8"><a   class="text-title hover-text-primary link-hover-primary transition">Developer</a></h3>
+                            <ul class="doctor-degree list-unstyled mb-15">
+                                <li class="d-inline-block">-</li>
+                                <li class="d-inline-block">-</li>
+                                <li class="d-inline-block">-</li>
+                                <li class="d-inline-block">-</li>
+                            </ul>
+                            <p class="doctors-location position-relative ps-4"><img src="assets/img/icons/pin-black.svg" alt="Icon" class="position-absolute start-0">India Tamil-Nadu 636004</p>
+                            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                <a href="#"  class="btn style-three font-secondary fw-semibold position-relative z-1 round-10">
+                                    <span>Contect
+                                        <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon" class="transition icon-left">
+                                    </span>
+                                    <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon" class="transition icon-right">
+                                </a>
+                                <a href="tel:0000000000" class="position-relative booking-link fs-xx-14 fw-semibold text-title link-hover-title"><img src="assets/img/icons/phone-black.svg" alt="Icon" class="position-absolute start-0 top-2">Ph Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-xl-4 col-md-6">
+                    <div class="doctor-card style-five round-20 mb-30 transition">
+                        <div class="doctor-img position-relative round-10">
+                            <img src="assets/img/personal-2/developer-img1.jpg" alt="Doctor" class="round-10">
+                            <div class="share-action d-flex flex-wrap position-absolute">
+                                <div class="share-btn position-relative">
+                                    <span class="d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22"><i class="ri-share-line"></i></span>
+                                    <ul class="social-profile list-unstyled mb-0 transition">
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-facebook-fill"></i></a></li>
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-twitter-x-line"></i></a></li>
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-instagram-fill"></i></a></li>
+                                        <li><a href="#" target="_blank" class="d-flex flex-column align-items-center justify-content-center round-5 transition"><i class="ri-linkedin-fill"></i></a></li>
+                                    </ul>
+                                </div>
+                                <button class="add-to-wishlist border-0 d-flex flex-column align-items-center justify-content-center round-5 bg-white text-title fs-22 transition"><i class="ri-heart-3-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="doctor-info">
+                            <div class="d-flex flex-wrap align-items-center justify-content-between mb-20">
+                                <a   class="doctor-category style-one d-inline-block bg-ash text_secondary fw-medium round-5 transition">App Developer</a>
+                                <div class="ratings">
+                                    <i class="ri-star-fill"></i>
+                                    <span class="ms-1">5.0</span>
+                                </div>
+                            </div>
+                            <h3 class="fs-24 fw-extrabold mb-8"><a   class="text-title hover-text-primary link-hover-primary transition">Developer</a></h3>
+                            <ul class="doctor-degree list-unstyled mb-15">
+                                <li class="d-inline-block">-</li>
+                                <li class="d-inline-block">-</li>
+                                
+                            </ul>
+                            <p class="doctors-location position-relative ps-4"><img src="assets/img/icons/pin-black.svg" alt="Icon" class="position-absolute start-0">India Tamil-Nadu 636004</p>
+                            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                <a href="#" class="btn style-three font-secondary fw-semibold position-relative z-1 round-10">
+                                    <span>Contect
+                                        <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon" class="transition icon-left">
+                                    </span>
+                                    <img src="assets/img/icons/long-arrow-right-blue.svg" alt="Icon" class="transition icon-right">
+                                </a>
+                               <a href="tel:0000000000" class="position-relative booking-link fs-xx-14 fw-semibold text-title link-hover-title"><img src="assets/img/icons/phone-black.svg" alt="Icon" class="position-absolute start-0 top-2">Ph Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+        <!-- Top Doctors Sections End -->
+
+        <!-- Moving Text Start -->
+        <div class="move-text mb-120">
+            <ul class="list-unstyled mb-0">
+                <li>WebSites</li>
+                <li>Mobile Apps</li>
+                <li>E-Commerce Websites</li>
+                <li>Teaching</li>
+                <li>Tech Launguages</li>
+                 
+            </ul>
+        </div>
+        <!-- Moving Text End -->
+
+        
+         
+        <!-- Testimonial Section Start -->
+        <!-- <div class="bg-ash pb-90">
+            <div class="container style-one">
+                <div class="text-center">
+                    <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">TESTIMONIALS</h6>
+                    <h2 class="section-title fw-black text-title mb-35" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">Our Patients Say About Us</h2>
+                </div>
+                <div class="testimonial-slider-two swiper position-relative" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="400">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial-card style-three position-relative d-flex flex-wrap align-items-center bg-white round-20 mb-30">
+                                <div class="client-img round-20"><img src="assets/img/clients/client-7.jpg" alt="Image" class="round-20"></div>
+                                <div class="client-info">
+                                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                        <div>
+                                            <h5 class="fs-22 fw-extrabold text-title mb-8">Steven Borders</h5>
+                                            <span>CEO & Founder</span>
+                                        </div>
+                                        <ul class="rating style-two list-unstyled mb-0">
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p class="mb-0">“Our administrative and clinical team is second pledge to help all and give hope to those who have  In this endeavor while we have the best taking care of the patients.”</p>
+                                    <img src="assets/img/icons/quote-blue-2.svg" alt="Icon" class="quote-icon">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card style-three position-relative d-flex flex-wrap align-items-center bg-white round-20 mb-30">
+                                <div class="client-img round-20"><img src="assets/img/clients/client-8.jpg" alt="Image" class="round-20"></div>
+                                <div class="client-info">
+                                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                        <div>
+                                            <h5 class="fs-22 fw-extrabold text-title mb-8">Steave Mackins</h5>
+                                            <span>Entreprenaur</span>
+                                        </div>
+                                        <ul class="rating style-two list-unstyled mb-0">
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p class="mb-0">“Our administrative and clinical team is second pledge to help all and give hope to those who have  In this endeavor while we have the best taking care of the patients.”</p>
+                                    <img src="assets/img/icons/quote-blue-2.svg" alt="Icon" class="quote-icon">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial-card style-three position-relative d-flex flex-wrap align-items-center bg-white round-20 mb-30">
+                                <div class="client-img round-20"><img src="assets/img/clients/client-9.jpg" alt="Image" class="round-20"></div>
+                                <div class="client-info">
+                                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                        <div>
+                                            <h5 class="fs-22 fw-extrabold text-title mb-8">Markus Luther</h5>
+                                            <span>Co-Founder, IBAC</span>
+                                        </div>
+                                        <ul class="rating style-two list-unstyled mb-0">
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                            <li><i class="ri-star-fill"></i></li>
+                                        </ul>
+                                    </div>
+                                    <p class="mb-0">“Our administrative and clinical team is second pledge to help all and give hope to those who have  In this endeavor while we have the best taking care of the patients.”</p>
+                                    <img src="assets/img/icons/quote-blue-2.svg" alt="Icon" class="quote-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-btn style-one">
+                        <button class="prev-btn testimonial-prev border-0 me-2 d-flex flex-column align-items-center justify-content-center rounded-circle transition"><i class="ri-arrow-left-s-line"></i></button>
+                        <button class="next-btn testimonial-next border-0 ms-2 d-flex flex-column align-items-center justify-content-center rounded-circle transition"><i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Testimonial Section End -->
+
+         <!-- Work Process Section Start -->
+        <div class="container style-one ptb-120">
+            <div class="text-center">
+                <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">WORKING PROCESS</h6>
+                <h2 class="section-title title-anim fw-black text-title mb-40" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="300">How My Development Process Works</h2>
+            </div>
+            <div class="work-process-wrap d-flex flex-wrap justify-content-lg-between justify-content-center style-one pb-90">
+                <div class="process-card style-one position-relative transition mb-30">
+                    <img src="assets/img/work-process/right-top-curve-arrow.png" alt="Icon" class="right-arrow">
+                    <div class="process-img position-relative rounded-circle">
+                        <img src="assets/img/process-des-3.png " alt="Image" class="rounded-circle">
+                        <span class="process-counter text-white font-secondary fw-extrabold fs-18 d-flex flex-column align-items-center justify-content-center rounded-circle bg_secondary">01</span>
+                    </div>
+                    <h3 class="fs-24 fw-extrabold text-title text-center mb-18">Requirement Analysis</h3>
+                    <p class="text-center mb-0 px-xxl-5 px-lg-3 mx-xxl-4">I start by understanding client needs, project goals, and technical requirements. This helps in creating a clear roadmap and defining the right technology stack for efficient development.</p>
+                </div>
+                <div class="process-card style-one position-relative transition mb-30">
+                    <img src="assets/img/work-process/right-down-curve-arrow.png" alt="Icon" class="right-arrow">
+                    <div class="process-img position-relative rounded-circle">
+                        <img src=" assets/img/Design & Development.png " alt="Image" class="rounded-circle">
+                        <span class="process-counter text-white font-secondary fw-extrabold fs-18 d-flex flex-column align-items-center justify-content-center rounded-circle bg_secondary">02</span>
+                    </div>
+                    <h3 class="fs-24 fw-extrabold text-title text-center mb-18">Design & Development</h3>
+                    <p class="text-center mb-0 px-xxl-5 px-lg-3 mx-xxl-4">I transform ideas into functional and scalable software solutions using clean, maintainable code. My focus is on performance, usability, and aligning every feature with the project’s objectives.</p>
+                </div>
+                <div class="process-card style-one position-relative transition mb-30">
+                    <div class="process-img position-relative rounded-circle">
+                        <img src="assets/img/Testing & Deployment1.png " alt="Image" class="rounded-circle">
+                        <span class="process-counter text-white font-secondary fw-extrabold fs-18 d-flex flex-column align-items-center justify-content-center rounded-circle bg_secondary">03</span>
+                    </div>
+                    <h3 class="fs-24 fw-extrabold text-title text-center mb-18">Testing & Deployment</h3>
+                    <p class="text-center mb-0 px-xxl-5 px-lg-3 mx-xxl-4">Before release, I ensure every component is thoroughly tested for quality, security, and reliability. The final product is deployed with precision and followed by continuous support and optimization.</p>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Work Process Section End -->
+
+        <!-- Brand Section Start -->
+        <div class="bg-ash ptb-120">
+            <div class="container style-one">
+     <h3 class="fs-20 fw-semibold text-title text-center mb-55">
+  Backed by Knowledge. Built with Precision. <span class="text_primary">10+</span> Technologies Mastered.
+</h3>
+
+                <div class="brand-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                               <img src="assets/img/java1.png " style=" max-width: 240px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src=" assets/img/html.png " style=" max-width:260px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src=" assets/img/css.png" style=" max-width: 280px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src=" assets/img/javascript.png" style=" max-width:300px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src="assets/img/sql.png" style=" max-width: 240px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src=" assets/img/linux.png " style=" max-width: 340px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src="assets/img/phpimg.png " style=" max-width: 340px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src="assets/img/mauiimg.png " style=" max-width: 340px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="brand-logo">
+                                <img src=" assets/img/netimg.png" style=" max-width: 340px !important;" alt="Brand Logo" class="d-block mx-auto">
+                            </div>
+                        </div>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brand Section End -->
+
+       
+    <!-- Footer Start -->
+    <footer class="footer-area style-three">
+        <div class="footer-top position-relative z-1 bg-title pt-120">
+            <div class="container style-one">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-md-20">
+                        <h6 class="section-subtitle fw-medium font-primary d-inline-block text_secondary position-relative mb-15"
+                            data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">NEWSLETTER</h6>
+                        <h2 class="section-title fw-black text-white mb-0" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="300">Subscribe To Newsletter</h2>
+                    </div>
+                    <div class="col-lg-6 ps-xxl-5">
+                        <form action="#" class="newsletter-form style-two position-relative ms-xxl-5" data-aos="fade-up"
+                            data-aos-duration="1100" data-aos-delay="350">
+                            <input type="email" placeholder="Enter Your Email"
+                                class="w-100 round-10 fs-15 text-white outline-0">
+                            <button type="submit" class="position-absolute border-0 round-10 transition"><img
+                                    src="assets/img/icons/plane.svg" alt="Icon"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="row pt-110 pb-90">
+                    <div class="col-xxl-3 col-xl-4 col-md-6 col-md-6 pe-xxl-4 pe-xl-4 pe-lg-5">
+                        <div class="footer-widget mb-30" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="300">
+                            <!-- <a href="index.html" class="logo d-block mb-32">
+                                <img src="assets/img/logo-white.png" alt="Logo">
+                            </a> -->
+                            <p class="comp-desc text-white fs-xx-14 mb-22">We strive to create a welcoming environment
+                                where patients feel valued respected and well informed about their health</p>
+                            <div class="social-share d-flex align-items-center">
+                                <span class="text-white me-3 fs-xx-14">Follow Us:</span>
+                                <ul class="social-profile style-two list-unstyled mb-0">
+                                    <li><a href="https://www.facebook.com/share/1Gt4bHno2v/" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-facebook-fill"></i></a></li>
+                                    <li><a href=" https://x.com/c_6018?t=hYwTtyUDqo6Q1K7oOFhPsA&s=08" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-twitter-x-line"></i></a></li>
+                                    <li><a href="https://www.instagram.com/mr_minato_.7?igsh=MTdmN3F0ZXdsY2Iweg==" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-instagram-fill"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/gowri-shankar-444364201" target="_blank"
+                                            class="d-flex flex-column align-items-center justify-content-center rounded-circle"><i
+                                                class="ri-linkedin-fill"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 offset-xxl-1 col-xl-2 col-md-6 col-md-3 ps-xxl-5 ps-xl-4">
+                        <div class="footer-widget mb-30" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="400">
+                            <h3 class="footer-widget-title fs-24 fw-extrabold text-white position-relative">Quick Links
+                            </h3>
+                            <ul class="footer-menu list-unstyled mb-0">
+                                <li>
+                                    <a href="index.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Home</span>
+                                            <span class="link-title2 title text_secondary">Home</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="skil.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Skill Details</span>
+                                            <span class="link-title2 title text_secondary">Skill Details</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                 <!-- blog-left-sidebar.html -->  <a href="teaching.html" class="link"> 
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Services</span>
+                                            <span class="link-title2 title text_secondary">Services</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Why Choose Us</span>
+                                            <span class="link-title2 title text_secondary">Why Choose Us</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact-us.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Contact</span>
+                                            <span class="link-title2 title text_secondary">Contact</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xxl-2 offset-xxl-1 col-xl-3 col-md-3 col-md-6 ps-xxl-4 ps-xl-5">
+                        <div class="footer-widget mb-30" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="500">
+                            <h3 class="footer-widget-title fs-24 fw-extrabold text-white position-relative">Useful Links
+                            </h3>
+                            <ul class="footer-menu list-unstyled mb-0">
+                                <li>
+                                    <a href="about.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">About</span>
+                                            <span class="link-title2 title text_secondary">About</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Projects</span>
+                                            <span class="link-title2 title text_secondary">Projects</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://maps.app.goo.gl/rZUnXKy4Kv8L8CjLA?g_st=aw" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Find A Location</span>
+                                            <span class="link-title2 title text_secondary">Find A Location</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="doctors-search.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Doctors Search</span>
+                                            <span class="link-title2 title text_secondary">Doctors Search</span>
+                                        </span>
+                                    </a>
+                                </li> -->
+                                <!-- <li>
+                                    <a href="online-consultation-telemedicine.html" class="link">
+                                        <span class="link-container">
+                                            <span class="link-title1 title text-white">Telemedicine Services</span>
+                                            <span class="link-title2 title text_secondary">Telemedicine Services</span>
+                                        </span>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 ps-xxl-5 ps-xl-0">
+                        <div class="footer-widget mb-30 ps-xxl-5" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="600">
+                            <h3 class="footer-widget-title fs-24 fw-extrabold text-white position-relative">Developer
+                                </h3>
+                            <div class="doctor-card-wrap">
+                                <div class="doctor-card-item d-flex flex-wrap align-items-center">
+                                    <div class="doctor-img round-10">
+                                        <img src="assets/img/personal-2/botom-img1.jpg" alt="Gowri" class="round-10">
+                                    </div>
+                                    <div class="doctor-info">
+                                        <h3 class="fs-16 fw-bold"><a href="#"
+                                                class="text-white  hover-text-secondary">B.GowriShankar</a></h3>
+                                        <span class="fs-14 d-block text-white">B.E, ECE</span>
+                                    </div>
+                                </div>
+                                <!-- <div class="doctor-card-item d-flex flex-wrap align-items-center">
+                                    <div class="doctor-img round-10">
+                                        <img src="assets/img/doctors/doc-thumb-2.jpg" alt="Gowri" class="round-10">
+                                    </div>
+                                    <div class="doctor-info">
+                                        <h3 class="fs-16 fw-bold"><a href="#"
+                                                class="text-white  hover-text-secondary">B.GowriShankar</a></h3>
+                                        <span class="fs-14 d-block text-white">B.E, ECE</span>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container style-one">
+                <div class="row">
+                    <div class="col-md-6 mb-sm-10">
+                        <p class="copyright-text mb-0 text-center text-md-start fs-xx-14"><i
+                                class="ri-copyright-line"></i><span class="text_primary fw-semibold">Gowrishankar</span> Is
+                            Proudly Owned By <a href="#" target="_blank"
+                                class="text_primary fw-semibold link-hover-primary">CodeiQ</a></p>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <ul class="footer-bottom-menu list-unstyled text-md-end text-center mb-0">
+                            <li><a href="#"
+                                    class="text-para hover-text-primary link-hover-primary fs-xx-14">Privacy Policy</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-para hover-text-primary link-hover-primary fs-xx-14">Terms &
+                                    Conditions</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <div id="progress-wrap" class="progress-wrap style-one">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path id="progress-path" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+            </svg>
+        </div>
+
+        <!-- Link of JS files -->
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/megamenu.js"></script>
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <script src="assets/js/fslightbox.js"></script>
+        <script src="assets/js/gsap.min.js"></script>
+        <script src="assets/js/scrollTrigger.min.js"></script>
+        <script src="assets/js/SplitText.min.js"></script>
+        <script src="assets/js/customEase.js"></script>
+        <script src="assets/js/aos.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
