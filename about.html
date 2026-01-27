@@ -791,9 +791,10 @@
                             data-aos-delay="300">Subscribe To Newsletter</h2>
                     </div>
                     <div class="col-lg-6 ps-xxl-5">
-                        <form action="#" class="newsletter-form style-two position-relative ms-xxl-5" data-aos="fade-up"
+                       <form name="newsletter" method="POST" data-netlify="true" action="/" netlify class="newsletter-form style-two position-relative ms-xxl-5" data-aos="fade-up"
                             data-aos-duration="1100" data-aos-delay="350">
-                            <input type="email" placeholder="Enter Your Email"
+                            <input type="hidden" name="form-name" value="newsletter">
+                            <input type="email" placeholder="Enter Your Email"  name="email" required
                                 class="w-100 round-10 fs-15 text-white outline-0">
                             <button type="submit" class="position-absolute border-0 round-10 transition"><img
                                     src="assets/img/icons/plane.svg" alt="Icon"></button>
