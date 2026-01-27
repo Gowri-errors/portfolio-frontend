@@ -1,7 +1,7 @@
 const API = "https://portfolio-backend-2-tzsc.onrender.com";
 
 /* =============================
-   DEVICE ID (ONCE)
+   DEVICE ID (GENERATE ONCE)
 ============================= */
 let deviceId = localStorage.getItem("device_id");
 if (!deviceId) {
@@ -10,46 +10,48 @@ if (!deviceId) {
 }
 
 /* =============================
-   LOAD LIKES (FAST)
+   LOAD LIKE COUNTS FROM DB
 ============================= */
 async function loadAllLikes() {
   const counters = document.querySelectorAll(".wishlist-counter");
-console.log("Counters:", document.querySelectorAll(".wishlist-counter"));
 
-  // Run all requests in parallel
-  await Promise.all(
-    [...counters].map(async counter => {
-      const postId = counter.dataset.id;
-      const countEl = counter.querySelector("span");
-      const icon = counter.querySelector("i");
+  console.log("Like counters found:", counters.length);
 
-      try {
-        const [countRes, likedRes] = await Promise.all([
-          fetch(`${API}/api/count/${postId}`),
-          fetch(`${API}/api/liked/${postId}/${deviceId}`)
-        ]);
+  for (const counter of counters) {
+    const postId = counter.dataset.id;
+    const countEl = counter.querySelector("span");
+    const icon = counter.querySelector("i");
 
-        const countData = await countRes.json();
-        const likedData = await likedRes.json();
+    if (!postId || !countEl || !icon) continue;
 
-        countEl.innerText = countData.count;
+    try {
+      // GET TOTAL COUNT
+      const countRes = await fetch(`${API}/api/count/${postId}`);
+      const countData = await countRes.json();
+      countEl.innerText = countData.count || 0;
 
-        if (likedData.liked) {
-          icon.classList.add("liked");
-          icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
-        } else {
-          icon.classList.remove("liked");
-          icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
-        }
-      } catch {
-        console.log("Backend waking up...");
+      // CHECK DEVICE LIKE
+      const likedRes = await fetch(
+        `${API}/api/liked/${postId}/${deviceId}`
+      );
+      const likedData = await likedRes.json();
+
+      if (likedData.liked) {
+        icon.classList.add("liked");
+        icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
+      } else {
+        icon.classList.remove("liked");
+        icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
       }
-    })
-  );
+
+    } catch (err) {
+      console.log("Backend waking up...");
+    }
+  }
 }
 
 /* =============================
-   CLICK HANDLER (INSTANT)
+   LIKE / UNLIKE CLICK
 ============================= */
 document.addEventListener("click", e => {
   const counter = e.target.closest(".wishlist-counter");
@@ -59,6 +61,8 @@ document.addEventListener("click", e => {
   const icon = counter.querySelector("i");
   const countEl = counter.querySelector("span");
 
+  if (!postId || !icon || !countEl) return;
+
   let count = Number(countEl.innerText) || 0;
   const liked = icon.classList.contains("liked");
 
@@ -66,19 +70,23 @@ document.addEventListener("click", e => {
   icon.classList.add("animate");
   setTimeout(() => icon.classList.remove("animate"), 250);
 
-  // ===== INSTANT UI UPDATE =====
   if (liked) {
+    // UNLIKE
     icon.classList.remove("liked");
     icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
     countEl.innerText = Math.max(0, count - 1);
 
-    // Background DB update (non-blocking)
     fetch(`${API}/api/unlike`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ post_id: postId, device_id: deviceId })
+      body: JSON.stringify({
+        post_id: postId,
+        device_id: deviceId
+      })
     });
+
   } else {
+    // LIKE
     icon.classList.add("liked");
     icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
     countEl.innerText = count + 1;
@@ -86,58 +94,72 @@ document.addEventListener("click", e => {
     fetch(`${API}/api/like`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ post_id: postId, device_id: deviceId })
+      body: JSON.stringify({
+        post_id: postId,
+        device_id: deviceId
+      })
     });
   }
 });
- 
 
-document.querySelector(".query_form-1").addEventListener("submit", async e => {
-  e.preventDefault();
+/* =============================
+   CONTACT FORM (SAFE)
+============================= */
+const contactForm = document.querySelector(".query_form-1");
 
-  const form = e.target;
-  const statusBox = document.getElementById("form-status");
-  const button = form.querySelector("button");
+if (contactForm) {
+  contactForm.addEventListener("submit", async e => {
+    e.preventDefault();
 
-  button.innerText = "Sending...";
-  button.disabled = true;
+    const form = e.target;
+    const statusBox = document.getElementById("form-status");
+    const button = form.querySelector("button");
 
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    address: form.address.value,
-    message: form.querySelector("textarea").value
-  };
+    button.innerText = "Sending...";
+    button.disabled = true;
 
-  try {
-    const res = await fetch(`${API}/api/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      address: form.address?.value || "",
+      message: form.querySelector("textarea").value
+    };
 
-    const result = await res.json();
+    try {
+      const res = await fetch(`${API}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
 
-    if (result.success) {
-      form.reset();
-      statusBox.style.display = "block";
+      const result = await res.json();
 
-      setTimeout(() => {
-        statusBox.style.display = "none";
-      }, 4000);
-    } else {
-      alert("❌ Failed to send");
+      if (result.success) {
+        form.reset();
+        if (statusBox) {
+          statusBox.style.display = "block";
+          setTimeout(() => {
+            statusBox.style.display = "none";
+          }, 4000);
+        }
+      } else {
+        alert("❌ Failed to send email");
+      }
+
+    } catch {
+      alert("❌ Server not responding");
     }
 
-  } catch {
-    alert("❌ Server not responding");
-  }
+    button.innerText = "Submit now";
+    button.disabled = false;
+  });
+}
 
-  button.innerText = "Submit now";
-  button.disabled = false;
+/* =============================
+   LOAD AFTER EVERYTHING
+============================= */
+window.addEventListener("load", () => {
+  // wait for swiper / animation DOM
+  setTimeout(loadAllLikes, 700);
 });
-
-/* ============================= */
-loadAllLikes();
- 
