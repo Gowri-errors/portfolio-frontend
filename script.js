@@ -10,38 +10,44 @@ if (!deviceId) {
 }
 
 /* =============================
-   LOAD LIKES (FAST)
+   LOAD LIKES (STABLE)
 ============================= */
 async function loadAllLikes() {
-  try {
-    const res = await fetch(`${API}/api/counts`);
-    const counts = await res.json();
+  const counters = document.querySelectorAll(".wishlist-counter");
 
-    const map = {};
-    counts.forEach(row => {
-      map[row.post_id] = row.count;
-    });
+  for (const counter of counters) {
+    const postId = counter.dataset.id;
+    const countEl = counter.querySelector("span");
+    const icon = counter.querySelector("i");
 
-    document.querySelectorAll(".wishlist-counter").forEach(counter => {
-      const postId = counter.dataset.id;
-      const countEl = counter.querySelector("span");
-      const icon = counter.querySelector("i");
+    try {
+      // COUNT
+      const countRes = await fetch(`${API}/api/count/${postId}`);
+      const countData = await countRes.json();
+      countEl.innerText = countData.count || 0;
 
-      countEl.innerText = map[postId] || 0;
+      // DEVICE LIKE
+      const likedRes = await fetch(
+        `${API}/api/liked/${postId}/${deviceId}`
+      );
+      const likedData = await likedRes.json();
 
-      if (icon.classList.contains("liked")) {
+      if (likedData.liked) {
+        icon.classList.add("liked");
         icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
+      } else {
+        icon.classList.remove("liked");
+        icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
       }
-    });
 
-  } catch {
-    console.log("Backend waking up...");
+    } catch (err) {
+      console.log("Backend waking up...");
+    }
   }
 }
 
-
 /* =============================
-   CLICK HANDLER (INSTANT)
+   CLICK HANDLER
 ============================= */
 document.addEventListener("click", e => {
   const counter = e.target.closest(".wishlist-counter");
@@ -58,19 +64,23 @@ document.addEventListener("click", e => {
   icon.classList.add("animate");
   setTimeout(() => icon.classList.remove("animate"), 250);
 
-  // ===== INSTANT UI UPDATE =====
   if (liked) {
+    // UNLIKE
     icon.classList.remove("liked");
     icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
     countEl.innerText = Math.max(0, count - 1);
 
-    // Background DB update (non-blocking)
     fetch(`${API}/api/unlike`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ post_id: postId, device_id: deviceId })
+      body: JSON.stringify({
+        post_id: postId,
+        device_id: deviceId
+      })
     });
+
   } else {
+    // LIKE
     icon.classList.add("liked");
     icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
     countEl.innerText = count + 1;
@@ -78,8 +88,66 @@ document.addEventListener("click", e => {
     fetch(`${API}/api/like`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ post_id: postId, device_id: deviceId })
+      body: JSON.stringify({
+        post_id: postId,
+        device_id: deviceId
+      })
     });
   }
 });
- 
+
+/* =============================
+   CONTACT FORM SAFE
+============================= */
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const form = e.target;
+    const statusBox = document.getElementById("form-status");
+    const button = form.querySelector("button");
+
+    button.innerText = "Sending...";
+    button.disabled = true;
+
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      message: form.querySelector("textarea").value
+    };
+
+    try {
+      const res = await fetch(`${API}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        form.reset();
+        statusBox.style.display = "block";
+        setTimeout(() => {
+          statusBox.style.display = "none";
+        }, 4000);
+      } else {
+        alert("❌ Failed to send email");
+      }
+
+    } catch {
+      alert("❌ Server not responding");
+    }
+
+    button.innerText = "Submit now";
+    button.disabled = false;
+  });
+}
+
+/* =============================
+   INITIAL LOAD
+============================= */
+document.addEventListener("DOMContentLoaded", loadAllLikes);
