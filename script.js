@@ -13,39 +13,32 @@ if (!deviceId) {
    LOAD LIKES (FAST)
 ============================= */
 async function loadAllLikes() {
-  const counters = document.querySelectorAll(".wishlist-counter");
+  try {
+    const res = await fetch(`${API}/api/counts`);
+    const counts = await res.json();
 
-  // Run all requests in parallel
-  await Promise.all(
-    [...counters].map(async counter => {
+    const map = {};
+    counts.forEach(row => {
+      map[row.post_id] = row.count;
+    });
+
+    document.querySelectorAll(".wishlist-counter").forEach(counter => {
       const postId = counter.dataset.id;
       const countEl = counter.querySelector("span");
       const icon = counter.querySelector("i");
 
-      try {
-        const [countRes, likedRes] = await Promise.all([
-          fetch(`${API}/api/count/${postId}`),
-          fetch(`${API}/api/liked/${postId}/${deviceId}`)
-        ]);
+      countEl.innerText = map[postId] || 0;
 
-        const countData = await countRes.json();
-        const likedData = await likedRes.json();
-
-        countEl.innerText = countData.count;
-
-        if (likedData.liked) {
-          icon.classList.add("liked");
-          icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
-        } else {
-          icon.classList.remove("liked");
-          icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
-        }
-      } catch {
-        console.log("Backend waking up...");
+      if (icon.classList.contains("liked")) {
+        icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
       }
-    })
-  );
+    });
+
+  } catch {
+    console.log("Backend waking up...");
+  }
 }
+
 
 /* =============================
    CLICK HANDLER (INSTANT)
