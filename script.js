@@ -82,49 +82,55 @@ document.addEventListener("click", e => {
     });
   }
 });
- 
-document.getElementById("contactForm").addEventListener("submit", async e => {
-  e.preventDefault(); // 🔥 stops URL redirect
+ // =============================
+// CONTACT FORM (SAFE CHECK)
+// =============================
+const contactForm = document.getElementById("contactForm");
 
-  const form = e.target;
-  const statusBox = document.getElementById("form-status");
-  const button = form.querySelector("button");
+if (contactForm) {
+  contactForm.addEventListener("submit", async e => {
+    e.preventDefault(); // stop URL redirect
 
-  button.innerText = "Sending...";
-  button.disabled = true;
+    const form = e.target;
+    const statusBox = document.getElementById("form-status");
+    const button = form.querySelector("button");
 
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    phone: form.phone.value,
-    address: form.address?.value || "",
-    message: form.querySelector("textarea").value
-  };
+    button.innerText = "Sending...";
+    button.disabled = true;
 
-  try {
-    const res = await fetch(`${API}/api/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      address: form.address?.value || "",
+      message: form.querySelector("textarea").value
+    };
 
-    const result = await res.json();
+    try {
+      const res = await fetch(`${API}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
 
-    if (result.success) {
-      form.reset();
-      statusBox.style.display = "block";
+      const result = await res.json();
 
-      setTimeout(() => {
-        statusBox.style.display = "none";
-      }, 4000);
-    } else {
-      alert("❌ Failed to send email");
+      if (result.success) {
+        form.reset();
+        statusBox.style.display = "block";
+
+        setTimeout(() => {
+          statusBox.style.display = "none";
+        }, 4000);
+      } else {
+        alert("❌ Failed to send email");
+      }
+
+    } catch (err) {
+      alert("❌ Server not responding");
     }
 
-  } catch (err) {
-    alert("❌ Server not responding");
-  }
-
-  button.innerText = "Submit now";
-  button.disabled = false;
-});
+    button.innerText = "Submit now";
+    button.disabled = false;
+  });
+}
