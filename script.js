@@ -10,44 +10,45 @@ if (!deviceId) {
 }
 
 /* =============================
-   LOAD LIKES (STABLE)
+   LOAD LIKES (FAST)
 ============================= */
 async function loadAllLikes() {
   const counters = document.querySelectorAll(".wishlist-counter");
 
-  for (const counter of counters) {
-    const postId = counter.dataset.id;
-    const countEl = counter.querySelector("span");
-    const icon = counter.querySelector("i");
+  // Run all requests in parallel
+  await Promise.all(
+    [...counters].map(async counter => {
+      const postId = counter.dataset.id;
+      const countEl = counter.querySelector("span");
+      const icon = counter.querySelector("i");
 
-    try {
-      // COUNT
-      const countRes = await fetch(`${API}/api/count/${postId}`);
-      const countData = await countRes.json();
-      countEl.innerText = countData.count || 0;
+      try {
+        const [countRes, likedRes] = await Promise.all([
+          fetch(`${API}/api/count/${postId}`),
+          fetch(`${API}/api/liked/${postId}/${deviceId}`)
+        ]);
 
-      // DEVICE LIKE
-      const likedRes = await fetch(
-        `${API}/api/liked/${postId}/${deviceId}`
-      );
-      const likedData = await likedRes.json();
+        const countData = await countRes.json();
+        const likedData = await likedRes.json();
 
-      if (likedData.liked) {
-        icon.classList.add("liked");
-        icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
-      } else {
-        icon.classList.remove("liked");
-        icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
+        countEl.innerText = countData.count;
+
+        if (likedData.liked) {
+          icon.classList.add("liked");
+          icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
+        } else {
+          icon.classList.remove("liked");
+          icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
+        }
+      } catch {
+        console.log("Backend waking up...");
       }
-
-    } catch (err) {
-      console.log("Backend waking up...");
-    }
-  }
+    })
+  );
 }
 
 /* =============================
-   CLICK HANDLER
+   CLICK HANDLER (INSTANT)
 ============================= */
 document.addEventListener("click", e => {
   const counter = e.target.closest(".wishlist-counter");
@@ -64,23 +65,19 @@ document.addEventListener("click", e => {
   icon.classList.add("animate");
   setTimeout(() => icon.classList.remove("animate"), 250);
 
+  // ===== INSTANT UI UPDATE =====
   if (liked) {
-    // UNLIKE
     icon.classList.remove("liked");
     icon.classList.replace("ri-heart-3-fill", "ri-heart-3-line");
     countEl.innerText = Math.max(0, count - 1);
 
+    // Background DB update (non-blocking)
     fetch(`${API}/api/unlike`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        post_id: postId,
-        device_id: deviceId
-      })
+      body: JSON.stringify({ post_id: postId, device_id: deviceId })
     });
-
   } else {
-    // LIKE
     icon.classList.add("liked");
     icon.classList.replace("ri-heart-3-line", "ri-heart-3-fill");
     countEl.innerText = count + 1;
@@ -88,66 +85,59 @@ document.addEventListener("click", e => {
     fetch(`${API}/api/like`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        post_id: postId,
-        device_id: deviceId
-      })
+      body: JSON.stringify({ post_id: postId, device_id: deviceId })
     });
   }
 });
+ 
 
-/* =============================
-   CONTACT FORM SAFE
-============================= */
-const contactForm = document.getElementById("contactForm");
+document.querySelector(".query_form-1").addEventListener("submit", async e => {
+  e.preventDefault();
 
-if (contactForm) {
-  contactForm.addEventListener("submit", async e => {
-    e.preventDefault();
+  const form = e.target;
+  const statusBox = document.getElementById("form-status");
+  const button = form.querySelector("button");
 
-    const form = e.target;
-    const statusBox = document.getElementById("form-status");
-    const button = form.querySelector("button");
+  button.innerText = "Sending...";
+  button.disabled = true;
 
-    button.innerText = "Sending...";
-    button.disabled = true;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    address: form.address.value,
+    message: form.querySelector("textarea").value
+  };
 
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      message: form.querySelector("textarea").value
-    };
+  try {
+    const res = await fetch(`${API}/api/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-    try {
-      const res = await fetch(`${API}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+    const result = await res.json();
 
-      const result = await res.json();
+    if (result.success) {
+      form.reset();
+      statusBox.style.display = "block";
 
-      if (result.success) {
-        form.reset();
-        statusBox.style.display = "block";
-        setTimeout(() => {
-          statusBox.style.display = "none";
-        }, 4000);
-      } else {
-        alert("❌ Failed to send email");
-      }
-
-    } catch {
-      alert("❌ Server not responding");
+      setTimeout(() => {
+        statusBox.style.display = "none";
+      }, 4000);
+    } else {
+      alert("❌ Failed to send");
     }
 
-    button.innerText = "Submit now";
-    button.disabled = false;
-  });
-}
+  } catch {
+    alert("❌ Server not responding");
+  }
 
-/* =============================
-   INITIAL LOAD
-============================= */
-document.addEventListener("DOMContentLoaded", loadAllLikes);
+  button.innerText = "Submit now";
+  button.disabled = false;
+});
+console.log("Counters:", document.querySelectorAll(".wishlist-counter"));
+
+/* ============================= */
+loadAllLikes();
+ 
