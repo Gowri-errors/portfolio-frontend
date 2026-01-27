@@ -14,6 +14,7 @@ if (!deviceId) {
 ============================= */
 async function loadAllLikes() {
   const counters = document.querySelectorAll(".wishlist-counter");
+console.log("Counters:", document.querySelectorAll(".wishlist-counter"));
 
   // Run all requests in parallel
   await Promise.all(
@@ -136,7 +137,6 @@ document.querySelector(".query_form-1").addEventListener("submit", async e => {
   button.innerText = "Submit now";
   button.disabled = false;
 });
-console.log("Counters:", document.querySelectorAll(".wishlist-counter"));
 
 /* ============================= */
 loadAllLikes();
