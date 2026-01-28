@@ -899,112 +899,112 @@
         <script src="assets/js/main.js"></script>
 
 <script src="script.js"></script>
-<script>
-    
-document.addEventListener("DOMContentLoaded", () => {
+<!-- <script>
+        
+    document.addEventListener("DOMContentLoaded", () => {
 
-  const modal = document.getElementById("priceModal");
-  const closeBtn = document.querySelector(".close-modal");
+    const modal = document.getElementById("priceModal");
+    const closeBtn = document.querySelector(".close-modal");
 
-  const planInput = document.getElementById("selectedPlan");
-  const priceInput = document.getElementById("selectedPrice");
+    const planInput = document.getElementById("selectedPlan");
+    const priceInput = document.getElementById("selectedPrice");
 
-  const successBox = document.getElementById("priceSuccess");
-  const form = document.getElementById("priceForm");
+    const successBox = document.getElementById("priceSuccess");
+    const form = document.getElementById("priceForm");
 
-  // ❌ SAFETY CHECK
-  if (!modal || !form) {
-    console.warn("Pricing modal or form not found");
-    return;
-  }
+    // ❌ SAFETY CHECK
+    if (!modal || !form) {
+        console.warn("Pricing modal or form not found");
+        return;
+    }
 
-  // ===============================
-  // OPEN MODAL (ONLY ON CLICK)
-  // ===============================
-  document.querySelectorAll(".request-btn").forEach(btn => {
+    // ===============================
+    // OPEN MODAL (ONLY ON CLICK)
+    // ===============================
+    document.querySelectorAll(".request-btn").forEach(btn => {
 
-    btn.addEventListener("click", () => {
+        btn.addEventListener("click", () => {
 
-      const plan = btn.dataset.plan;
-      const price = btn.dataset.price;
+        const plan = btn.dataset.plan;
+        const price = btn.dataset.price;
 
-      const billingToggle = document.getElementById("billingToggle");
-      const billing = billingToggle && billingToggle.checked
-        ? "Yearly"
-        : "Monthly";
+        const billingToggle = document.getElementById("billingToggle");
+        const billing = billingToggle && billingToggle.checked
+            ? "Yearly"
+            : "Monthly";
 
-      planInput.value = `${plan} (${billing})`;
-      priceInput.value = "₹ " + price;
+        planInput.value = `${plan} (${billing})`;
+        priceInput.value = "₹ " + price;
 
-      modal.style.display = "flex"; // ✅ open only here
+        modal.style.display = "flex"; // ✅ open only here
+        });
+
     });
 
-  });
-
-  // ===============================
-  // CLOSE MODAL
-  // ===============================
-  if (closeBtn) {
-    closeBtn.onclick = () => {
-      modal.style.display = "none";
-    };
-  }
-
-  window.addEventListener("click", e => {
-    if (e.target === modal) {
-      modal.style.display = "none";
+    // ===============================
+    // CLOSE MODAL
+    // ===============================
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+        modal.style.display = "none";
+        };
     }
-  });
 
-  // ===============================
-  // SUBMIT FORM
-  // ===============================
-  form.addEventListener("submit", async e => {
-    e.preventDefault();
-
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      plan: planInput.value,
-      price: priceInput.value
-    };
-
-    try {
-      const res = await fetch(
-        "https://portfolio-backend-2-tzsc.onrender.com/api/pricing-request",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
+    window.addEventListener("click", e => {
+        if (e.target === modal) {
+        modal.style.display = "none";
         }
-      );
+    });
 
-      const result = await res.json();
+    // ===============================
+    // SUBMIT FORM
+    // ===============================
+    form.addEventListener("submit", async e => {
+        e.preventDefault();
 
-      if (result.success) {
-        successBox.style.display = "block";
+        const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        plan: planInput.value,
+        price: priceInput.value
+        };
 
-        setTimeout(() => {
-          successBox.style.display = "none";
-          modal.style.display = "none";
-          form.reset();
-        }, 2500);
+        try {
+        const res = await fetch(
+            "https://portfolio-backend-2-tzsc.onrender.com/api/pricing-request",
+            {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+            }
+        );
 
-      } else {
-        alert("❌ Failed to send request");
-      }
+        const result = await res.json();
 
-    } catch (err) {
-      console.error(err);
-      alert("❌ Backend not responding");
-    }
-  });
+        if (result.success) {
+            successBox.style.display = "block";
 
-});
+            setTimeout(() => {
+            successBox.style.display = "none";
+            modal.style.display = "none";
+            form.reset();
+            }, 2500);
+
+        } else {
+            alert("❌ Failed to send request");
+        }
+
+        } catch (err) {
+        console.error(err);
+        alert("❌ Backend not responding");
+        }
+    });
+
+    });
 
 
-</script>
+</script> -->
 </body>
 
 <!-- Mirrored from themetechmount.com/html/inqord/demo1/pricing.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 08:28:19 GMT -->
