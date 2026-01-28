@@ -156,6 +156,42 @@ if (contactForm) {
   });
 }
 
+
+document.querySelectorAll(".request-btn").forEach(btn => {
+  btn.addEventListener("click", async () => {
+
+    const plan = btn.dataset.plan;
+    const price = btn.dataset.price;
+
+    const billing = document.getElementById("billingToggle").checked
+      ? "Yearly"
+      : "Monthly";
+
+    try {
+      const res = await fetch(`${API}/api/pricing-request`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan,
+          billing,
+          price
+        })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("✅ Pricing request sent successfully!");
+      } else {
+        alert("❌ Failed. Try again.");
+      }
+
+    } catch {
+      alert("❌ Server not responding");
+    }
+  });
+});
+
 /* =============================
    LOAD AFTER EVERYTHING
 ============================= */
