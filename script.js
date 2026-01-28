@@ -157,6 +157,16 @@ if (contactForm) {
 }
 
 
+
+/* =============================
+   LOAD AFTER EVERYTHING
+============================= */
+window.addEventListener("load", () => {
+  // wait for swiper / animation DOM
+  setTimeout(loadAllLikes, 700);
+});
+
+
 document.querySelectorAll(".request-btn").forEach(btn => {
   btn.addEventListener("click", async () => {
 
@@ -190,12 +200,4 @@ document.querySelectorAll(".request-btn").forEach(btn => {
       alert("❌ Server not responding");
     }
   });
-});
-
-/* =============================
-   LOAD AFTER EVERYTHING
-============================= */
-window.addEventListener("load", () => {
-  // wait for swiper / animation DOM
-  setTimeout(loadAllLikes, 700);
 });
