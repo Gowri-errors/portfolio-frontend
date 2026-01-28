@@ -39,11 +39,355 @@
         <link rel="stylesheet" href="assets/css/responsive.css">
         <link rel="stylesheet" href="assets/css/dark-theme.css">
         <link rel="stylesheet" href="assets/css/update.css">
+        <style>
+ /* ===== Modal Background ===== */
+.price-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(6px);
+}
+
+/* ===== Modal Box ===== */
+.price-box {
+  background: #ffffff;
+  width: 360px;
+  padding: 30px;
+  border-radius: 14px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: popup 0.4s ease;
+}
+
+/* ===== Animation ===== */
+@keyframes popup {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== Close Button ===== */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #666;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+/* ===== Title ===== */
+.price-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ===== Form ===== */
+#priceForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== Inputs ===== */
+#priceForm input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+#priceForm input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* ===== Readonly Inputs ===== */
+#selectedPlan,
+#selectedPrice {
+  background: #f6f7fb;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ===== Button ===== */
+#priceForm button {
+  margin-top: 10px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#priceForm button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* ===== Success Message ===== */
+#priceSuccess {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+#priceModal {
+  display: none; /* 🔥 THIS IS WHY AUTO OPEN STOPS */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+        </style>
 </head>
 <body>
   
 
+      <!--  Preloader Start -->
+        <div class="preloader-area d-flex flex-column align-items-center justify-content-center h-100" id="preloader">
+            <!-- <span class="d-block stethoscope-icon"><i class="ri-stethoscope-line"></i></span> -->
+            <span class="text-primary mt-2 fw-medium">Loading...</span>
+        </div>
+        <!--  Preloader End -->
+
+        <!-- Theme Switcher Start -->
+            <!-- <div class="switch-theme-mode">
+                <label id="switch" class="switch">
+                    <input type="checkbox" onchange="toggleTheme()" id="slider">
+                    <span class="slider round"></span>
+                </label>
+            </div> -->
+        <!-- Theme Switcher End -->
+      <!--page-start-->
+    <div class="page">
+
+            <!-- Navbaar Top Start -->
+        <div class="navbar-top bg-title">
+            <div class="container style-one">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pe-lg-0 mb-md-6">
+                        <!-- <p class="fs-15 text-white text-lg-start text-center mb-0">Caring Today for a Healthier Tomorrow and Forever<a href="doctors-list.html" class="ms-xl-3 ms-2 text-white fw-medium link-hover-white">Find A Doctor<img src="assets/img/icons/right-arrow-white.svg" alt="Icon"></a></p> -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="navbar-top-options d-flex flex-wrap align-items-center justify-content-lg-end justify-content-center">
+                            <div class="navbar-option-item position-relative">
+                                <!-- <a href="online-payment.html" class="fs-15 text-white link-hover-white">Pay Your Bill</a> -->
+                            </div>
+                            <div class="navbar-option-item position-relative">
+                                <a href="service.html" class="fs-15 text-white link-hover-white">Service Price List</a>
+                            </div>
+                            <div class="navbar-option-item position-relative">
+                                <!-- <div class="language-selector position-relative d-inline-block">
+                                    <div class="selected-language d-flex align-items-center" id="selected-language">
+                                        <span class="flag-container rounded-circle">
+                                            <img src="assets/img/dashboard/flag/uk.png" alt="US Flag" class="rounded-circle">
+                                        </span>
+                                        <span class="lang-name fs-14 text-white">English</span>
+                                    </div>
+                                    <div class="dropdown" id="dropdown">
+                                        <div class="dropdown-item" data-lang="en" data-flag="assets/img/dashboard/flag/uk.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/uk.png" alt="US Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">English</span>
+                                        </div>
+                                        <div class="dropdown-item" data-lang="fr" data-flag="assets/img/dashboard/flag/france.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/france.png" alt="US Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">French</span>
+                                        </div>
+                                        <div class="dropdown-item" data-lang="ar" data-flag="assets/img/dashboard/flag/uae.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/uae.png" alt="French Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">Arabic</span>
+                                        </div>
+                                        <div class="dropdown-item" data-lang="ch" data-flag="assets/img/dashboard/flag/china.png">
+                                            <span class="flag-container rounded-circle">
+                                                <img src="assets/img/dashboard/flag/china.png" alt="Spanish Flag" class="rounded-circle">
+                                            </span>
+                                            <span class="lang-name fs-14 text-title">Chinese</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbaar Top End -->
+
+        <!-- Navbar Center Start -->
+        <div class="navbar-center style-one d-none d-lg-block">
+            <div class="container style-one">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-2 col-5">
+                        <!-- <a href="index.html" class="logo">
+                            <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                            <img src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                        </a> -->
+                    </div>
+                    <div class="col-xl-9 col-lg-10 col-7">
+                        <div class="contact-card-wrap style-two d-none d-lg-flex flex-wrap align-items-center justify-content-lg-end ">
+                            <div class="contact-card d-flex flex-wrap align-items-center">
+                                <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-white transition">
+                                    <img src="assets/img/icons/phone-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Contect Line</span>
+                                    <a href="tel:7395871291" class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">+91 (739) 581 291</a>
+                                </div>
+                            </div>
+                            <div class="contact-card d-flex flex-wrap align-items-center">
+                                <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-white transition">
+                                    <img src="assets/img/icons/mail-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Support Email</span>
+                                    <a href="mailto:gowrishankar.devpro@gmail.com" class="d-inline-block font-secondary fw-semibold text-title fs-xx-14 hover-text-secondary">gowrishankar.devpro@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-card d-flex flex-wrap align-items-center">
+                                <div class="contact-icon d-flex flex-column align-items-center justify-content-center rounded-circle bg-white transition">
+                                    <img src="assets/img/icons/pin-blue.svg" alt="Icon" class="transition">
+                                </div>
+                                <div class="contact-info">
+                                    <span class="d-block fs-15 fs-xx-14">Visit Us On</span>
+                                    <p class="font-secondary fw-semibold text-title fs-xx-14 mb-0">TamilNadu Salem-636203</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar Center End -->
+
+        <!-- Navbar Area Start -->
+        <div class="navbar-area style-one" id="navbar">
+            <div class="container style-one">
+                <div class="navbar-wrapper d-flex justify-content-between align-items-center p-0">
+                    <!-- <a href="index.html" class="logo d-lg-none">
+                        <img src="assets/img/logo.png" alt="Logo" class="logo-light">
+                        <img src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                    </a> -->
+                    <div class="menu-area me-auto">
+                        <div class="overlay"></div>
+                        <nav class="menu">
+                            <div class="menu-mobile-header">
+                                <button type="button" class="menu-mobile-arrow bg-transparent border-0"><i class="ri-arrow-left-s-line"></i></button>
+                                <button type="button" class="menu-mobile-close bg-transparent border-0"><i class="ri-close-line"></i></button>
+                            </div>
+                            <ul class="menu-section p-0 mb-0">
+                                <li class="menu-item-has-children">
+                                <a href="index.html" class="active">HOME</a>
+
+                            </li>
+                               <li><a href="#">ABOUT</a></li>
+                                 <li class="menu-item-has-children">
+                                <a href="javascript:void(0)">SERVICES</a>
+                                <ul class="menu-subs menu-column-1">
+                                    <li class="menu-item-has-children">
+                                        <a href="teaching.html">TEACHING</a>
+                                       
+                                    </li>
+                                    <li class="menu-item-has-children"><a href="javascript:void(0)">DEVELOPER</a>
+                                         
+                                    </li>
+                                    <!-- <li><a href="error-404.html">Error 404</a></li> -->
+                                </ul>
+                            </li>
+                            <li class="menu-item-has-children">
+    <a href="javascript:void(0)">PROJECTS</a>
+    <ul class="menu-subs menu-column-1">
+        <li><a href="#projects">Web Development Projects</a></li>
+        
      
+    </ul>
+</li>
+ <li><a href="skil.html">SKILLS</a></li>
+                              <li class="menu-item-has-children">
+                                <a href="javascript:void(0)">CONTECT</a>
+                              
+                            </li>
+                               
+                                
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="other-options d-flex flex-wrap align-items-center justify-content-end">
+                      
+                        <div class="option-item">
+                            <!-- <div class="currency-selector position-relative">
+                                <img src="assets/img/icons/dollar.svg" alt="Icon">
+                                <select class="text-title outline-0 fw-semibold bg-transparent border-0">
+                                    <option value="1">USD</option>
+                                    <option value="2">GBP</option>
+                                    <option value="3">YEN</option>
+                                </select>
+                            </div> -->
+                        </div>
+                        <div class="option-item d-lg-inline-block">
+                            <a href="#" class="header-link font-secondary fw-semibold position-relative d-inline-block text-title hover-text-secondary link-hover-secondary transition">
+                                <i class="ri-account-circle-line"></i>
+                                <span class="d-none d-lg-inline-block">Contect / Register</span>
+                            </a>
+                        </div>
+                        <div class="option-item d-lg-none me-0">
+                            <button type="button" class="menu-mobile-trigger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="option-item d-none d-lg-block">
+                            <a href="#" class="btn style-two font-secondary fw-semibold position-relative z-1 round-10">
+                                <span>Contect Me...!
+                                    <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-left">
+                                </span>
+                                <img src="assets/img/icons/right-arrow-white.svg" alt="Icon" class="transition icon-right">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- Navbar Area End-->
 
     <!--page-start-->
     <div class="page">
@@ -123,7 +467,14 @@
 </ul>
 
                                    <div class="prt-p_table-footer">
-                                      <a class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-icon-btn-right prt-btn-color-skincolor w-100" data-plan="Basic" data-price="4,999"  tabindex="0">Request an estimate</a>
+           <button
+  type="button"
+  class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-icon-btn-right prt-btn-color-skincolor w-100 request-btn"
+  data-plan="Basic"
+  data-price="4,999">
+  Request an estimate
+</button>
+
                                    </div>
                                 </div>
                               </div>
@@ -151,8 +502,16 @@
 
 
                                    <div class="prt-p_table-footer">
-                                      <a data-plan="Advanced"
-   data-price="14,999" class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-icon-btn-right prt-btn-color-skincolor w-100"  tabindex="0">Request an estimate</a>
+
+                                    <button
+  type="button"
+  class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-icon-btn-right prt-btn-color-skincolor w-100 request-btn"
+  data-plan="Advanced"
+  data-price="14,999">
+  Request an estimate
+</button>
+
+                                      
                                    </div>
                                 </div>
                               </div>
@@ -180,8 +539,16 @@
 
 
                                    <div class="prt-p_table-footer">
-                                      <a data-plan="Premium"
-   data-price="29,999" class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-icon-btn-right prt-btn-color-skincolor w-100"   tabindex="0">Request an estimate</a>
+  <button
+  type="button"
+  class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-icon-btn-right prt-btn-color-skincolor w-100 request-btn"
+  data-plan="Premium"
+  data-price="29,999">
+  Request an estimate
+</button>
+
+
+                                    
                                    </div>
                                 </div>
                               </div>
@@ -191,6 +558,29 @@
                 </div>
             </section>
             <!--pricing-section end-->
+<!-- PRICE REQUEST MODAL -->
+<div id="priceModal" class="price-modal">
+  <div class="price-box">
+    <span class="close-modal">&times;</span>
+
+    <h3>Request an Estimate</h3>
+
+    <form id="priceForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="phone" placeholder="Phone Number" required>
+
+      <input type="text" id="selectedPlan" readonly>
+      <input type="text" id="selectedPrice" readonly>
+
+      <button type="submit">Send Request</button>
+    </form>
+
+    <p id="priceSuccess" style="display:none;color:green;margin-top:10px;">
+      ✅ Request sent successfully
+    </p>
+  </div>
+</div>
 
             <!--accordian-section start-->
             <section class="prt-row accordian-section bg-base-grey clearfix">
@@ -508,7 +898,113 @@
         <script src="assets/js/aos.js"></script>
         <script src="assets/js/main.js"></script>
 
+<script src="script.js"></script>
+<script>
+    
+document.addEventListener("DOMContentLoaded", () => {
 
+  const modal = document.getElementById("priceModal");
+  const closeBtn = document.querySelector(".close-modal");
+
+  const planInput = document.getElementById("selectedPlan");
+  const priceInput = document.getElementById("selectedPrice");
+
+  const successBox = document.getElementById("priceSuccess");
+  const form = document.getElementById("priceForm");
+
+  // ❌ SAFETY CHECK
+  if (!modal || !form) {
+    console.warn("Pricing modal or form not found");
+    return;
+  }
+
+  // ===============================
+  // OPEN MODAL (ONLY ON CLICK)
+  // ===============================
+  document.querySelectorAll(".request-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+      const plan = btn.dataset.plan;
+      const price = btn.dataset.price;
+
+      const billingToggle = document.getElementById("billingToggle");
+      const billing = billingToggle && billingToggle.checked
+        ? "Yearly"
+        : "Monthly";
+
+      planInput.value = `${plan} (${billing})`;
+      priceInput.value = "₹ " + price;
+
+      modal.style.display = "flex"; // ✅ open only here
+    });
+
+  });
+
+  // ===============================
+  // CLOSE MODAL
+  // ===============================
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      modal.style.display = "none";
+    };
+  }
+
+  window.addEventListener("click", e => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // ===============================
+  // SUBMIT FORM
+  // ===============================
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      plan: planInput.value,
+      price: priceInput.value
+    };
+
+    try {
+      const res = await fetch(
+        "https://portfolio-backend-2-tzsc.onrender.com/api/pricing-request",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }
+      );
+
+      const result = await res.json();
+
+      if (result.success) {
+        successBox.style.display = "block";
+
+        setTimeout(() => {
+          successBox.style.display = "none";
+          modal.style.display = "none";
+          form.reset();
+        }, 2500);
+
+      } else {
+        alert("❌ Failed to send request");
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("❌ Backend not responding");
+    }
+  });
+
+});
+
+
+</script>
 </body>
 
 <!-- Mirrored from themetechmount.com/html/inqord/demo1/pricing.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 08:28:19 GMT -->
