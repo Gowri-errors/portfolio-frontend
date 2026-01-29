@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edge Style Progress Slider</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg,#0f2a2f,#145c4e,#1a7f5a);
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1600px;
+}
+
+/* PROGRESS */
+.progress-wrap {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  text-align: center;
+  color: white;
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,.25);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: white;
+  transition: width 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+.progress-text {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: .85;
+}
+
+/* SLIDER */
+.slider {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 640px;
+  height: 400px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 26px;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateX(0) scale(.9);
+  transition:
+    transform 1s cubic-bezier(.4,0,.2,1),
+    opacity 1s ease,
+    filter 1s ease;
+  box-shadow: 0 50px 120px rgba(0,0,0,.45);
+}
+
+/* ACTIVE */
+.slide.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0) scale(1);
+  z-index: 5;
+}
+
+/* EXIT LEFT */
+.slide.exit-left {
+  opacity: 0;
+  transform: translateX(-140%) scale(.85);
+}
+
+/* EXIT RIGHT */
+.slide.exit-right {
+  opacity: 0;
+  transform: translateX(140%) scale(.85);
+}
+
+/* ENTER FROM RIGHT */
+.slide.enter-right {
+  opacity: 1;
+  transform: translateX(140%) scale(.9);
+}
+
+/* ENTER FROM LEFT */
+.slide.enter-left {
+  opacity: 1;
+  transform: translateX(-140%) scale(.9);
+}
+
+/* CONTROLS */
+.controls {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  padding: 12px 36px;
+  margin: 0 12px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="scene">
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-bar">
+      <span class="progress-fill"></span>
+    </div>
+    <div class="progress-text">0%</div>
+  </div>
+
+  <!-- Slider -->
+  <div class="slider">
+    <img src="assets/img/process-des-1.png" class="slide active">
+    <img src="assets/img/process-des-3.png" class="slide">
+    <img src="assets/img/process-des-2.png" class="slide">
+    <img src="assets/img/process-des-3.png" class="slide">
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+  </div>
+
+</div>
+
+<script  >const slides = document.querySelectorAll(".slide");
+const progressFill = document.querySelector(".progress-fill");
+const progressText = document.querySelector(".progress-text");
+
+let index = 0;
+const total = slides.length;
+
+/* UPDATE PROGRESS */
+function updateProgress() {
+  const percent = Math.round((index / (total - 1)) * 100);
+  progressFill.style.width = percent + "%";
+  progressText.textContent = percent + "%";
+}
+
+/* NEXT */
+function nextSlide() {
+  const current = slides[index];
+  const nextIndex = (index + 1) % total;
+  const next = slides[nextIndex];
+
+  current.classList.remove("active");
+  current.classList.add("exit-left");
+
+  next.classList.add("enter-right");
+  next.classList.add("active");
+
+  setTimeout(() => {
+    current.className = "slide";
+    next.classList.remove("enter-right");
+  }, 1000);
+
+  index = nextIndex;
+  updateProgress();
+}
+
+/* PREVIOUS */
+function prevSlide() {
+  const current = slides[index];
+  const prevIndex = (index - 1 + total) % total;
+  const prev = slides[prevIndex];
+
+  current.classList.remove("active");
+  current.classList.add("exit-right");
+
+  prev.classList.add("enter-left");
+  prev.classList.add("active");
+
+  setTimeout(() => {
+    current.className = "slide";
+    prev.classList.remove("enter-left");
+  }, 1000);
+
+  index = prevIndex;
+  updateProgress();
+}
+
+document.getElementById("next").onclick = nextSlide;
+document.getElementById("prev").onclick = prevSlide;
+
+updateProgress();
+</script>
+</body>
+</html>
